@@ -34,5 +34,9 @@
     <string>Saansa</string>
     <key>XSAppIconAssets</key>
     <string>Assets.xcassets/AppIcon.appiconset</string>
+
+    <!-- Permiso para usar cámara -->
+    <key>NSCameraUsageDescription</key>
+    <string>Por favor permitir acceso al uso de la cámara</string>
 </dict>
 </plist>
