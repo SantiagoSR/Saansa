@@ -8,14 +8,19 @@ using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using FreshMvvm;
 
-namespace Saansa.Paginas
+namespace Saansa
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class PaginaArticulo : FreshBaseContentPage
+    public partial class PaginaListaArticulo : FreshBaseContentPage
     {
-        public PaginaArticulo()
+        public PaginaListaArticulo()
         {
             InitializeComponent();
+        }
+
+        private void InitializeComponent()
+        {
+            throw new NotImplementedException();
         }
     }
 }

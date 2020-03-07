@@ -1,24 +1,21 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
-<fresh:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+﻿<?xml version="1.0" encoding="utf-8"?>
+<freshMvvm:FreshBaseContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Saansa.Inventario"
-             xmlns:fresh="clr-namespace:FreshMvvm;assembly=Saansa"
+             xmlns:freshMvvm="clr-namespace:FreshMvvm;assembly=FreshMvvm"
              Title="Inventario">
     <ContentPage.Content>
-        
         <StackLayout Padding="15" Spacing="5">
-            
             <Label Text="Nombre Articulo"/>
-            <Entry Text="{Binding ItemName}" />
+            <Entry Text="{Binding NombreArticulo}" />
             <Label Text="Barra Articulo" />
-            <Entry Text="{Binding Barcode}" />
+            <Entry Text="{Binding CodigoBarraArticulo}" />
             <Label Text="Cantidad Articulo" />
             <Entry Text="{Binding ItemQuantity}" />
             <Button Text="Save" Command="{Binding SaveCommand}" />
-            
         </StackLayout>
     </ContentPage.Content>
-</fresh:FreshBaseContentPage>
+</freshMvvm:FreshBaseContentPage>
