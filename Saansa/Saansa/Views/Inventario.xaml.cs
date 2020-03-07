@@ -6,19 +6,15 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using FreshMvvm;
 
 namespace Saansa
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Inventario : FreshBaseContentPage
-
+    public partial class Inventario : ContentPage
     {
         public Inventario()
         {
             InitializeComponent();
         }
-
-
     }
 }

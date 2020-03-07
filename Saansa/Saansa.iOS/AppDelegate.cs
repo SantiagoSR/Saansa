@@ -4,7 +4,6 @@ using System.Linq;
 
 using Foundation;
 using UIKit;
-using FreshMvvm;
 
 namespace Saansa.iOS
 {
@@ -24,9 +23,6 @@ namespace Saansa.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            var repository = new Repositorio(AyudaAcessoArchivo.ObtenerPathLocal("articulo.db3"));
-            FreshIOC.Container.Register(repository);
-
             LoadApplication(new App());
 
             return base.FinishedLaunching(app, options);

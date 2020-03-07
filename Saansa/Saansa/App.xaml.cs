@@ -1,8 +1,7 @@
 ﻿using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
-using FreshMvvm;
-using Saansa.ModeloPaginas;
+
 
 namespace Saansa
 {
@@ -11,9 +10,7 @@ namespace Saansa
         public App()
         {
             InitializeComponent();
-            var page = FreshPageModelResolver.ResolvePageModel<ModeloListaPaginaArticulo>();
-            var navContainer = new FreshNavigationContainer(page);
-            MainPage = navContainer;
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
