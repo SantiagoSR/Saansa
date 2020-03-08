@@ -6,7 +6,7 @@ using SQLite;
 
 namespace Saansa
 {
-    class SQLiteHelper
+    public class SQLiteHelper
     {
         SQLiteAsyncConnection db;
         public SQLiteHelper(string dbPath)

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Saansa.Modelos
 {
-    class Articulo
+    public class Articulo
     {
         [PrimaryKey, AutoIncrement]
         public int Cantidad { get; set; }
