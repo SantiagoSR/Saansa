@@ -2,6 +2,8 @@ using System;
 using System.Windows.Input;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 using ZXing;
 using ZXing.Mobile;
@@ -11,16 +13,37 @@ using Xamarin.Forms;
 
 namespace Saansa
 {
-    public class ScannerModel
+    public class ScannerModel : INotifyPropertyChanged
     {
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
         public INavigation Navigation { get; set; }
 
         public ICommand ScannerCommand { get; set; }
+
+        private string textoCodigo;
+
+        public string TextoCodigo
+        {
+            get => textoCodigo;
+            set
+            {
+                textoCodigo = value;
+                OnPropertyChanged();
+            }
+        }
+
 
         public ScannerModel(INavigation navigation)
         {
             Navigation = navigation;
             ScannerCommand = new Command(async () => await ScanCode());
+            textoCodigo = "";
         }
 
         async Task ScanCode()
@@ -37,7 +60,7 @@ namespace Saansa
             {
                 ShowFlashButton = false,
                 TopText = "Enfoca el código QR con la cámara",
-                Opacity = 0.5
+                Opacity = 0.7
             };
             overlay.BindingContext = overlay;
 
@@ -53,9 +76,10 @@ namespace Saansa
             {
                 scannerPage.IsScanning = false;
 
-                Device.BeginInvokeOnMainThread(() =>
+                Device.BeginInvokeOnMainThread(async () =>
                 {
-                    scannerPage.Title = $"{DateTime.Now.ToShortTimeString()} | Código: {scanResult.Text}";
+                    await Navigation.PopAsync();
+                    TextoCodigo = scanResult.Text;
                 });
             };
         }

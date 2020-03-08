@@ -11,6 +11,9 @@
             <Button
                 Text="Escanear"
                 Command="{Binding ScannerCommand}" />
+            <Label Text="{Binding TextoCodigo}"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
