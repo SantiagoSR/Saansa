@@ -15,6 +15,8 @@ namespace Saansa
         public Scanner()
         {
             InitializeComponent();
+
+            BindingContext = new ScannerModel(this.Navigation);
         }
     }
 }
