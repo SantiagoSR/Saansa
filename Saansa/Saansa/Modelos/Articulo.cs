@@ -10,5 +10,6 @@ namespace Saansa.Modelos
         [PrimaryKey, AutoIncrement]
         public int Cantidad { get; set; }
         public string Producto { get; set; }
+        public int Id { get; set; }
     }
 }

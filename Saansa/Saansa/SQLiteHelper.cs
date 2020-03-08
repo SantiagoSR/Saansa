@@ -42,10 +42,10 @@ namespace Saansa
             return db.Table<Modelos.Articulo>().ToListAsync();
         }
 
-        //Read Item
-        public Task<Modelos.Articulo> GetItemAsync(int cantidad)
+        //Read Item //INT
+        public Task<Modelos.Articulo> GetItemAsync(string cantidad)
         {
-            return db.Table<Modelos.Articulo>().Where(i => i.Cantidad == cantidad).FirstOrDefaultAsync();
+            return db.Table<Modelos.Articulo>().Where(i => i.Cantidad.Equals(cantidad)).FirstOrDefaultAsync();
         }
     }
 }

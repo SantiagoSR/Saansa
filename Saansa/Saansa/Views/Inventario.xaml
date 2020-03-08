@@ -2,25 +2,36 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Saansa"
-             x:Class="Saansa.Inventario">
+             x:Class="Saansa.Inventario"
+             Title="Inventario">
 
     <StackLayout>
         <StackLayout>
             <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
-                <Entry x:Name="txtProducto" Placeholder="Producto a borrar o actualizar"></Entry>
+                <Image Margin="0,0,0,10" HeightRequest="100" Source="inventario.png" ></Image>
+                <Label Margin="0,0,0,10" Text="Mi Cafe Delicias" FontAttributes="Bold" FontSize="Large" TextColor="Brown" HorizontalTextAlignment="Center" ></Label>
+                <Entry x:Name="txtProducto" Placeholder="numero de identificacion Producto"></Entry>
                 <Entry x:Name="txtNombre" Placeholder="Nombre del producto"></Entry>
+                <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnAdd" WidthRequest="200" Text="Add" Clicked="BtnAdd_Clicked" />
-                    <Button x:Name="btnRead" WidthRequest="200" Text="Read" Clicked="BtnRead_Clicked" />
+                    <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked" />
+                    <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked" />
                 </StackLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnUpdate" WidthRequest="200" Text="Update" Clicked="BtnUpdate_Clicked"/>
-                    <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />
+                    <Button x:Name="btnUpdate" WidthRequest="200" Text="Actualizar" Clicked="BtnUpdate_Clicked"/>
+                    <Button x:Name="btnDelete" WidthRequest="200" Text="Borrar" Clicked="BtnDelete_Clicked" />
                 </StackLayout>
                 <ListView x:Name="lstArticulo">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Articulo}" Detail="{Binding Cantidad}"></TextCell>
+                            <ViewCell>
+                                <StackLayout>
+                                <Label Text="{Binding Producto}"></Label>
+                                        <Label Text="{Binding Id}"
+                                        HorizontalOptions="EndAndExpand"
+                                        TextColor="Black"></Label>
+                                </StackLayout>
+                                </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>

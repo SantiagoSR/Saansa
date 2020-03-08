@@ -33,8 +33,9 @@ namespace Saansa
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 Modelos.Articulo articulo = new Modelos.Articulo()
-                {
-                    Producto = txtNombre.Text
+                {   
+                    Producto = txtNombre.Text,
+                    Id = Convert.ToInt32(txtCantidad.Text)
                 };
 
                 //Add New Person
@@ -50,7 +51,7 @@ namespace Saansa
             }
             else
             {
-                await DisplayAlert("Required", "Please Enter name!", "OK");
+                await DisplayAlert("Required", "Ingresa un Nombre!", "OK");
             }
         }
 
@@ -61,16 +62,17 @@ namespace Saansa
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 //Get Person
-                var articulo = await App.SQLiteDb.GetItemAsync(Convert.ToInt32(txtProducto.Text));
+                //var articulo = await App.SQLiteDb.GetItemAsync(Convert.ToInt32(txtProducto.Text));
+                var articulo = await App.SQLiteDb.GetItemAsync(txtNombre.Text);
                 if (articulo != null)
                 {
                     txtNombre.Text = articulo.Producto;
-                    await DisplayAlert("Success", "Person Name: " + articulo.Producto, "OK");
+                    await DisplayAlert("Success", "Nombre Articulo: " + articulo.Producto + " Cantidad:" + articulo.Id , "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Required", "Please Enter PersonID", "OK");
+                await DisplayAlert("Required", "Ingresa Identificacion", "OK");
             }
         }
 
@@ -105,29 +107,31 @@ namespace Saansa
         }
 
         private async void BtnDelete_Clicked(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrEmpty(txtProducto.Text))
+        {   //txtProducto
+            if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 //Get Person
-                var person = await App.SQLiteDb.GetItemAsync(Convert.ToInt32(txtProducto.Text));
-                if (person != null)
+                //var articulo = await App.SQLiteDb.GetItemAsync(Convert.ToInt32(txtProducto.Text));
+                var articulo = await App.SQLiteDb.GetItemAsync(txtNombre.Text);
+
+                if (articulo != null)
                 {
                     //Delete Person
-                    await App.SQLiteDb.DeleteItemAsync(person);
+                    await App.SQLiteDb.DeleteItemAsync(articulo);
                     txtProducto.Text = string.Empty;
-                    await DisplayAlert("Success", "Person Deleted", "OK");
+                    await DisplayAlert("Success", "Articulo Borrado", "OK");
 
                     //Get All Persons
-                    var personList = await App.SQLiteDb.GetItemsAsync();
-                    if (personList != null)
+                    var ListaArticulos = await App.SQLiteDb.GetItemsAsync();
+                    if (ListaArticulos != null)
                     {
-                        lstArticulo.ItemsSource = personList;
+                        lstArticulo.ItemsSource = ListaArticulos;
                     }
                 }
             }
             else
             {
-                await DisplayAlert("Required", "Please Enter PersonID", "OK");
+                await DisplayAlert("Required", "Please Enter Id Articulo", "OK");
             }
         }
 
