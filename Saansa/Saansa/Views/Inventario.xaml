@@ -17,10 +17,10 @@
                     <Button x:Name="btnUpdate" WidthRequest="200" Text="Update" Clicked="BtnUpdate_Clicked"/>
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Delete" Clicked="BtnDelete_Clicked" />
                 </StackLayout>
-                <ListView x:Name="lstPerson">
+                <ListView x:Name="lstArticulo">
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <TextCell Text="{Binding Name}" Detail="{Binding PersonID}"></TextCell>
+                            <TextCell Text="{Binding Articulo}" Detail="{Binding Cantidad}"></TextCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
