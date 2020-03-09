@@ -6,8 +6,10 @@
              xmlns:local="clr-namespace:Saansa" 
              mc:Ignorable="d"
              x:Class="Saansa.MainPage">
+    
     <local:Ventas/>
     <local:Inventario/>
     <local:Scanner/>
 
 </TabbedPage>
+    
