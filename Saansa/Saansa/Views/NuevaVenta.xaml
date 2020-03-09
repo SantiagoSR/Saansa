@@ -3,21 +3,29 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Saansa.Views.NuevaVenta">
     <ContentPage.Content>
-        <ListView x:Name="listART">
+        <StackLayout BackgroundColor="#f5cda2">
+            <ListView x:Name="listART">
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Horizontal">
+                        <StackLayout Orientation="Horizontal" Margin="10">
                             <StackLayout>
-                                <Label Text="{Binding Producto}" TextColor="Orange" VerticalOptions="Center"/>
+                                <Label Text="{Binding Producto}" TextColor="White" VerticalOptions="Center"
+                                       FontSize="Large"/>
                                 <Label Text="{Binding Id}" TextColor="Black" HorizontalTextAlignment="Start"
                                        VerticalOptions="End"/>
                             </StackLayout>
-                            <Button Text="ADD" HorizontalOptions="EndAndExpand" BackgroundColor="Brown"/>
+                            <Button Text="+" HorizontalOptions="EndAndExpand" BackgroundColor="#b27b4b"
+                                    Margin="10" FontSize="Small"/>
+                            <Button Text="-" HorizontalOptions="EndAndExpand" BackgroundColor="#b27b4b"
+                                    Margin="10" FontSize="Small"/>
+                            <Button Text="Agregar a la venta" HorizontalOptions="EndAndExpand" BackgroundColor="#b27b4b"
+                                    Margin="10" FontSize="Small"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -7,7 +7,7 @@
              x:Class="Saansa.Ventas"
              Title="Ventas">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="#f5cda2">
             <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
                     BorderColor="Brown" BorderWidth="3" CornerRadius="5" Margin="20"/>
         </StackLayout>
