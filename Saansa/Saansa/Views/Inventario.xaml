@@ -10,7 +10,7 @@
             <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
                 <Image Margin="0,0,0,10" HeightRequest="100" Source="inventario.png" ></Image>
                 <Label Margin="0,0,0,10" Text="Mi Cafe Delicias" FontAttributes="Bold" FontSize="Large" TextColor="Brown" HorizontalTextAlignment="Center" ></Label>
-                <Entry x:Name="txtProducto" Placeholder="numero de identificacion Producto"></Entry>
+                <Entry x:Name="txtProducto"></Entry>
                 <Entry x:Name="txtNombre" Placeholder="Nombre del producto"></Entry>
                 <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
