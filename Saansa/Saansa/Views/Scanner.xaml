@@ -5,10 +5,13 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Saansa.Scanner"
-             Title="Escaner">
+             Title="Escáner">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Escaner"
+        <StackLayout Margin="5" Padding="5">
+            <Button
+                Text="Escanear"
+                Command="{Binding ScannerCommand}" />
+            <Label Text="{Binding TextoCodigo}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
