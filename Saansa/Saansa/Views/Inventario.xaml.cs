@@ -20,7 +20,7 @@ namespace Saansa
         {
             base.OnAppearing();
 
-            //Get All Persons
+            //Get All Products
             var articuloLista = await App.SQLiteDb.GetItemsAsync();
             if (articuloLista != null)
             {

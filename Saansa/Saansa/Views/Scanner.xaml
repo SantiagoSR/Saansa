@@ -10,7 +10,12 @@
         <StackLayout Margin="5" Padding="5">
             <Button
                 Text="Escanear"
-                Command="{Binding ScannerCommand}" />
+                Command="{Binding ScannerCommand}"
+                BackgroundColor="White"
+                BorderColor="Brown"
+                BorderWidth="3"
+                CornerRadius="5"
+                Margin="20"/>
             <Label Text="{Binding TextoCodigo}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />

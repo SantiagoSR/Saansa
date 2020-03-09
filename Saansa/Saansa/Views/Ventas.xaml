@@ -8,9 +8,8 @@
              Title="Ventas">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Ventas"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+            <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
+                    BorderColor="Brown" BorderWidth="3" CornerRadius="5" Margin="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
