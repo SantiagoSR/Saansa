@@ -78,14 +78,12 @@ namespace Saansa
 
         private async void BtnUpdate_Clicked(object sender, EventArgs e)
         {
-            //txtProducto
             if (!string.IsNullOrEmpty(txtProducto.Text))
             {
                 Modelos.Articulo articulo = new Modelos.Articulo()
                 {
-                    //Cantidad = Convert.ToInt32(txtProducto.Text),
-                    Producto = txtNombre.Text,
-                    Id  = Convert.ToInt32(txtCantidad.Text)
+                    Cantidad = Convert.ToInt32(txtProducto.Text),
+                    Producto = txtNombre.Text
                 };
 
                 //Update Person
@@ -93,9 +91,7 @@ namespace Saansa
 
                 txtProducto.Text = string.Empty;
                 txtNombre.Text = string.Empty;
-                txtCantidad.Text = string.Empty;
-
-                await DisplayAlert("Success", "Articulo Actualizado", "OK");
+                await DisplayAlert("Success", "Person Updated Successfully", "OK");
                 //Get All Persons
                 var articuloLista = await App.SQLiteDb.GetItemsAsync();
                 if (articuloLista != null)
@@ -106,7 +102,7 @@ namespace Saansa
             }
             else
             {
-                await DisplayAlert("Required", "Ingresa el Nombre del articulo", "OK");
+                await DisplayAlert("Required", "Please Enter PersonID", "OK");
             }
         }
 
@@ -122,8 +118,7 @@ namespace Saansa
                 {
                     //Delete Person
                     await App.SQLiteDb.DeleteItemAsync(articulo);
-                    //txtProducto
-                    txtNombre.Text = string.Empty;
+                    txtProducto.Text = string.Empty;
                     await DisplayAlert("Success", "Articulo Borrado", "OK");
 
                     //Get All Persons
