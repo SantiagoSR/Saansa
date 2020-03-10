@@ -16,9 +16,29 @@ namespace Saansa.Views
         {
             base.OnAppearing();
             var articuloLista = await App.SQLiteDb.GetItemsAsync();
-            if (articuloLista != null) {
+            if (articuloLista != null)
+            {
                 listART.ItemsSource = articuloLista;
             }
+        }
+
+        int pQuantity = 0;
+
+        void subButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            pQuantity--;
+            if (pQuantity == -1) {
+                pQuantity = 0;
+            }
+        }
+
+        void addButton_Clicked(System.Object sender, System.EventArgs e)
+        {
+            pQuantity++;
+        }
+
+        void addCart_Clicked(System.Object sender, System.EventArgs e)
+        {
         }
     }
 }

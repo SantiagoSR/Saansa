@@ -5,27 +5,52 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#f5cda2">
             <ListView x:Name="listART">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <ViewCell>
-                        <StackLayout Orientation="Horizontal" Margin="10">
-                            <StackLayout>
-                                <Label Text="{Binding Producto}" TextColor="White" VerticalOptions="Center"
-                                       FontSize="Large"/>
-                                <Label Text="{Binding Id}" TextColor="Black" HorizontalTextAlignment="Start"
-                                       VerticalOptions="End"/>
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label Text="{Binding Producto}"
+                                           TextColor="White"
+                                           Margin="5,0,0,0"/>
+                                    <Label Text="{Binding Id}"
+                                           TextColor="Black"
+                                           HorizontalTextAlignment="Start"
+                                           Margin="5,0,0,0"/>
+                                </StackLayout>
+                                <Button x:Name="subButton"
+                                        Text="-"
+                                        BackgroundColor="#b27b4b"
+                                        Margin="5,5,0,5"
+                                        Clicked="subButton_Clicked"
+                                        FontSize="Small"
+                                        TextColor="Black"
+                                        WidthRequest="30"/>
+                                <Entry  x:Name="productQuantity"
+                                        Placeholder="0"
+                                        MaxLength="2"
+                                        Margin="5,0,0,0"
+                                        Keyboard="Numeric"/>
+                                <Button x:Name="addButton"
+                                        Text="+"
+                                        BackgroundColor="#b27b4b"
+                                        Margin="5,5,0,5"
+                                        Clicked="addButton_Clicked"
+                                        FontSize="Small"
+                                        TextColor="Black"
+                                        WidthRequest="30"/>
+                                <Button x:Name="addCart"
+                                        Text="Agregar"
+                                        BackgroundColor="#b27b4b"
+                                        Margin="5,3,5,3"
+                                        Clicked="addCart_Clicked"
+                                        FontSize="Small"
+                                        TextColor="Black"/>
                             </StackLayout>
-                            <Button Text="+" HorizontalOptions="EndAndExpand" BackgroundColor="#b27b4b"
-                                    Margin="10" FontSize="Small"/>
-                            <Button Text="-" HorizontalOptions="EndAndExpand" BackgroundColor="#b27b4b"
-                                    Margin="10" FontSize="Small"/>
-                            <Button Text="Agregar a la venta" HorizontalOptions="EndAndExpand" BackgroundColor="#b27b4b"
-                                    Margin="10" FontSize="Small"/>
-                        </StackLayout>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
