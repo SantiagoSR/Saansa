@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Saansa.Views.NuevaVenta">
+             x:Class="Saansa.Views.NuevaVenta"
+             xmlns:local= "clr-namespace:Saansa">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#f5cda2">
             <ListView x:Name="listART">
@@ -30,7 +31,8 @@
                                         Placeholder="0"
                                         MaxLength="2"
                                         Margin="5,0,0,0"
-                                        Keyboard="Numeric"/>
+                                        Keyboard="Numeric"
+                                        FontSize="Small" />
                                 <Button x:Name="addButton"
                                         Text="+"
                                         BackgroundColor="#b27b4b"

@@ -4,7 +4,6 @@
              xmlns:local="clr-namespace:Saansa"
              x:Class="Saansa.Inventario"
              Title="Inventario">
-
     <StackLayout>
         <StackLayout>
             <StackLayout HorizontalOptions="Center" VerticalOptions="Start">
@@ -43,5 +42,4 @@
             </StackLayout>
         </StackLayout>
     </StackLayout>
-
 </ContentPage>
