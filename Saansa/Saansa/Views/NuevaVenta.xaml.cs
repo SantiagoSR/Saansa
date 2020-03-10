@@ -40,5 +40,10 @@ namespace Saansa.Views
         void addCart_Clicked(System.Object sender, System.EventArgs e)
         {
         }
+
+        void goToCart_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new CarritoDeVentas());
+        }
     }
 }

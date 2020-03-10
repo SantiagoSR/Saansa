@@ -13,11 +13,8 @@
                                 <StackLayout HorizontalOptions="StartAndExpand">
                                     <Label Text="{Binding Producto}"
                                            TextColor="White"
-                                           Margin="5,0,0,0"/>
-                                    <Label Text="{Binding Id}"
-                                           TextColor="Black"
-                                           HorizontalTextAlignment="Start"
-                                           Margin="5,0,0,0"/>
+                                           Margin="5,0,0,0"
+                                           FontSize="Large"/>
                                 </StackLayout>
                                 <Button x:Name="subButton"
                                         Text="-"
@@ -53,6 +50,10 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button x:Name="goToCart" Text="Ir al carrito" BackgroundColor="White" Clicked="goToCart_Clicked"
+                        CornerRadius="5" Margin="1"/>
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
