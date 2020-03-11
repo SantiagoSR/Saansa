@@ -13,7 +13,8 @@
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
                                 <StackLayout HorizontalOptions="StartAndExpand">
-                                    <Label Text="{Binding Producto}"
+                                    <Label x:Name="nombreProducto"
+                                           Text="{Binding Producto}"
                                            Margin="5,0,0,0"
                                            FontSize="Large"/>
                                 </StackLayout>

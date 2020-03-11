@@ -17,7 +17,7 @@ namespace Saansa
         }
 
         //Insert and Update new record
-        public Task<int> SaveItemAsync(Modelos.ArticuloCarrito aCarrito)
+        public Task<int> SaveItemAsyncCarrito(Modelos.ArticuloCarrito aCarrito)
         {   //articulo.Cantidad
             if (aCarrito.Cantidad != 0)
             {
@@ -45,7 +45,7 @@ namespace Saansa
             }
         }
 
-        public Task<int> DeleteItemAsunc(Modelos.ArticuloCarrito aCarrito)
+        public Task<int> DeleteItemAsuncCarrito(Modelos.ArticuloCarrito aCarrito)
         {
             return db.DeleteAsync(aCarrito);
         }
@@ -56,7 +56,10 @@ namespace Saansa
             return db.DeleteAsync(articulo);
         }
 
-
+        public Task<List<Modelos.ArticuloCarrito>> GetItemsAsyncCarrito()
+        {
+            return db.Table<Modelos.ArticuloCarrito>().ToListAsync();
+        }
         //Read All Items
         public Task<List<Modelos.Articulo>> GetItemsAsync()
         {
@@ -64,6 +67,11 @@ namespace Saansa
         }
 
         //Read Item //INT
+        public Task<Modelos.ArticuloCarrito> GetItemAsyncCarrito(string cantidad)
+        {
+            return db.Table<Modelos.ArticuloCarrito>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();
+        }
+
         public Task<Modelos.Articulo> GetItemAsync(string cantidad)
         {   
             return db.Table<Modelos.Articulo>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();

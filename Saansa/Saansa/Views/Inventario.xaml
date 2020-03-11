@@ -5,10 +5,11 @@
              x:Class="Saansa.Inventario"
              Title="Inventario">
 
-            <StackLayout HorizontalOptions="Center" VerticalOptions="Start" BackgroundColor="#f5cda2">
+            <StackLayout BackgroundColor="#f5cda2">
                 <Image Margin="0,0,0,10" HeightRequest="100" Source="inventario.png" ></Image>
-                <Label Margin="0,0,0,10" Text="Mi Cafe Delicias" FontAttributes="Bold" FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
-                <Entry x:Name="txtProducto"></Entry>
+                <Label Margin="0,0,0,10" Text="Mi Cafe Delicias" FontAttributes="Bold"
+                       FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
+                <Entry x:Name="txtProducto" Placeholder="Código Producto"></Entry>
                 <Entry x:Name="txtNombre" Placeholder="Nombre del producto"></Entry>
                 <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">

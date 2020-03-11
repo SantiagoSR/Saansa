@@ -3,17 +3,23 @@ using System.IO;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
+using System.Collections;
+using Saansa.Modelos;
+using System.Collections.Generic;
 
 
 namespace Saansa
 {
     public partial class App : Application
     {
+
+        public static IList<ArticuloCarrito> listaCarrito;
         static SQLiteHelper db;
         public App()
         {
             InitializeComponent();
             MainPage = new NavigationPage(new MainPage());
+           
         }
         public static SQLiteHelper SQLiteDb
         {

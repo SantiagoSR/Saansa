@@ -41,6 +41,8 @@ namespace Saansa
                 //Add New Person
                 await App.SQLiteDb.SaveItemAsync(articulo);
                 txtNombre.Text = string.Empty;
+                txtCantidad.Text = string.Empty;
+                txtProducto.Text = string.Empty;
                 await DisplayAlert("Success", "Articulo añadido con exito", "OK");
                 //Get All Persons
                 var articuloLista = await App.SQLiteDb.GetItemsAsync();

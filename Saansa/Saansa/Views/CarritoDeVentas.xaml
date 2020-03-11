@@ -4,17 +4,7 @@
              x:Class="Saansa.Views.CarritoDeVentas">
     <ContentPage.Content>
         <StackLayout>
-            <ListView x:Name="listaCarro" BackgroundColor="#f5cda2">
-                <ListView.FooterTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.FooterTemplate>
-            </ListView>
+            <Label Text="Hola"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
