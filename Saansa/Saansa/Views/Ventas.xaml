@@ -9,7 +9,7 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="#f5cda2">
             <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="Brown" BorderWidth="3" CornerRadius="5" Margin="20"/>
+                    BorderColor="#b27b4b" BorderWidth="3" CornerRadius="5" Margin="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -3,6 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Saansa.Views.CarritoDeVentas">
     <ContentPage.Content>
-        <Label Text="HELLO MY FRIEND"/>
+        <StackLayout>
+            <ListView x:Name="listaCarro" BackgroundColor="#f5cda2">
+                <ListView.FooterTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.FooterTemplate>
+            </ListView>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

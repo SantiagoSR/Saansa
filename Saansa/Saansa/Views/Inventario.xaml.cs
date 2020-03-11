@@ -67,7 +67,7 @@ namespace Saansa
                 if (articulo != null)
                 {
                     txtNombre.Text = articulo.Producto;
-                    await DisplayAlert("Success", "Nombre Articulo: " + articulo.Producto + " Cantidad:" + articulo.Id , "OK");
+                    await DisplayAlert("Success", "Nombre Articulo: " + articulo.Producto + "\n Cantidad:" + articulo.Id , "OK");
                 }
             }
             else
