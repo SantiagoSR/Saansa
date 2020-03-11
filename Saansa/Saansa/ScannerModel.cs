@@ -11,7 +11,7 @@ using ZXing.Net.Mobile.Forms;
 
 using Xamarin.Forms;
 
-namespace Saansa
+namespace Saansa.Views
 {
     public class ScannerModel : INotifyPropertyChanged
     {
