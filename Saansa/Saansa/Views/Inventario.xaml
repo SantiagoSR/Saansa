@@ -14,15 +14,15 @@
                 <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
                 <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="5"/>
+                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="5"/>
+                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnUpdate" WidthRequest="200" Text="Actualizar" Clicked="BtnUpdate_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="5" />
+                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Borrar" Clicked="BtnDelete_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="5" />
+                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
                 <ListView x:Name="lstArticulo" BackgroundColor="#f5cda2">
                     <ListView.ItemTemplate>

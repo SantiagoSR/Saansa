@@ -12,7 +12,7 @@ namespace Saansa.Views
         public CarritoDeVentas()
         {
             InitializeComponent();
-            BindingContext = this;
+            listaArticulosCarrito.ItemsSource = App.listaCarrito;
         }
     }
 }

@@ -54,7 +54,6 @@ namespace Saansa.Views
                     Producto = nombreProducto.Text,
                     Cantidad = Convert.ToInt16(productQuantity.Text)
                 }); 
-
             }
             else
             {
@@ -79,10 +78,6 @@ namespace Saansa.Views
             StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[2];
             Entry productQuantity = (Entry)stacklayout1.Children[0];
             productQuantity.Text = pQuantity.ToString();
-        }
-
-        private void agregarCarrito()
-        {
         }
     }
 }

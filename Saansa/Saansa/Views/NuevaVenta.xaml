@@ -55,7 +55,7 @@
             </ListView>
             <StackLayout VerticalOptions="EndAndExpand">
                 <Button x:Name="goToCart" Text="Ir al carrito" BackgroundColor="White" Clicked="goToCart_Clicked"
-                         CornerRadius="5" Margin="1"/>
+                         BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15" Margin="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>
