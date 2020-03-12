@@ -4,7 +4,6 @@ using System.Collections;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using SQLite;
-using System.Collections;
 using Saansa.Modelos;
 using System.Collections.Generic;
 
