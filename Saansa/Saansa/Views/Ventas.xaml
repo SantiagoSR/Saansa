@@ -7,10 +7,9 @@
              x:Class="Saansa.Ventas"
              Title="Ventas">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Ventas"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <StackLayout BackgroundColor="#f5cda2">
+            <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
+                    BorderColor="#b27b4b" BorderWidth="3" CornerRadius="20" Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Saansa.Views.NuevaVenta">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="#f5cda2">
+            <ListView x:Name="listART" BackgroundColor="#f5cda2">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout HorizontalOptions="StartAndExpand">
+                                    <Label x:Name="nombreProducto"
+                                           Text="{Binding Producto}"
+                                           Margin="5,0,0,0"
+                                           FontSize="Large"/>
+                                </StackLayout>
+                                <Button x:Name="subButton"
+                                        Text="-"
+                                        BackgroundColor="#b27b4b"
+                                        Margin="5,5,0,5"
+                                        Clicked="subButton_Clicked"
+                                        FontSize="Small"
+                                        TextColor="Black"
+                                        WidthRequest="30"/>
+                                <StackLayout>
+                                    <Entry Text="0" x:Name="productQuantity"
+                                           Placeholder="0" MaxLength="2"
+                                           Margin="5,0,0,0" Keyboard="Numeric"
+                                           FontSize="Small"
+                                           HorizontalOptions="Center"/>
+                                </StackLayout>
+                                <Button x:Name="addButton"
+                                        Text="+"
+                                        BackgroundColor="#b27b4b"
+                                        Margin="5,5,0,5"
+                                        Clicked="addButton_Clicked"
+                                        FontSize="Small"
+                                        TextColor="Black"
+                                        WidthRequest="30"/>
+                                <Button x:Name="addCart"
+                                        Text="Agregar"
+                                        BackgroundColor="#b27b4b"
+                                        Margin="5,3,5,3"
+                                        Clicked="addCart_Clicked"
+                                        FontSize="Small"
+                                        TextColor="Black"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button x:Name="goToCart" Text="Ir al carrito" BackgroundColor="White" Clicked="goToCart_Clicked"
+                         BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15" Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
