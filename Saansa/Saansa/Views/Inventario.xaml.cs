@@ -20,7 +20,7 @@ namespace Saansa
         {
             base.OnAppearing();
 
-            //Get All Persons
+            //Get All Products
             var articuloLista = await App.SQLiteDb.GetItemsAsync();
             if (articuloLista != null)
             {
@@ -41,6 +41,8 @@ namespace Saansa
                 //Add New Person
                 await App.SQLiteDb.SaveItemAsync(articulo);
                 txtNombre.Text = string.Empty;
+                txtCantidad.Text = string.Empty;
+                txtProducto.Text = string.Empty;
                 await DisplayAlert("Success", "Articulo añadido con exito", "OK");
                 //Get All Persons
                 var articuloLista = await App.SQLiteDb.GetItemsAsync();
@@ -67,7 +69,7 @@ namespace Saansa
                 if (articulo != null)
                 {
                     txtNombre.Text = articulo.Producto;
-                    await DisplayAlert("Success", "Nombre Articulo: " + articulo.Producto + " Cantidad:" + articulo.Id , "OK");
+                    await DisplayAlert("Success", "Nombre Articulo: " + articulo.Producto + "\n Cantidad:" + articulo.Id , "OK");
                 }
             }
             else
