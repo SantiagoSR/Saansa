@@ -10,7 +10,7 @@ namespace Saansa
 {
     public class QRGenerator
     {
-        ZXingBarcodeImageView barcode;
+        public static ZXingBarcodeImageView barcode;
 
         public QRGenerator(string value)
         {
@@ -28,6 +28,8 @@ namespace Saansa
 
             barcode.BarcodeValue = value;
         }
+
+
         /*
         public Task SaveQRImage(string text)
         {

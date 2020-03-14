@@ -7,7 +7,7 @@
              x:Class="Saansa.Scanner"
              Title="Escáner">
     <ContentPage.Content>
-        <StackLayout Padding="5" BackgroundColor="#f5cda2">
+        <StackLayout Padding="5" BackgroundColor="#f5cda2" x:Name="stackPrincipal">
             <Button
                 Text="Escanear"
                 Command="{Binding ScannerCommand}"
@@ -19,6 +19,7 @@
             <Label Text="{Binding TextoCodigo}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand"/>
+            <Entry x:Name="txtQR" Placeholder="Texto QR" ReturnType="Go" Completed="EntryCompleted"></Entry>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
