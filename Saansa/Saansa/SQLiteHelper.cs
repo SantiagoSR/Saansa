@@ -13,19 +13,41 @@ namespace Saansa
         {
             db = new SQLiteAsyncConnection(dbPath);
             db.CreateTableAsync<Modelos.Articulo>().Wait();
+            db.CreateTableAsync<Modelos.ArticuloCarrito>().Wait();
         }
 
         //Insert and Update new record
+        public Task<int> SaveItemAsyncCarrito(Modelos.ArticuloCarrito aCarrito)
+        {   //articulo.Cantidad
+            if (aCarrito.Cantidad != 0)
+            {
+                //probando esto 
+                //var nuevoArticulo = GetItemAsync(articulo.Producto);
+                return db.UpdateAsync(aCarrito);
+            }
+            else
+            {
+                return db.InsertAsync(aCarrito);
+            }
+        }
+
         public Task<int> SaveItemAsync(Modelos.Articulo articulo)
-        {
+        {   //articulo.Cantidad
             if (articulo.Cantidad != 0)
             {
+                //probando esto 
+                //var nuevoArticulo = GetItemAsync(articulo.Producto);
                 return db.UpdateAsync(articulo);
-            }
+            }  
             else
             {
                 return db.InsertAsync(articulo);
             }
+        }
+
+        public Task<int> DeleteItemAsuncCarrito(Modelos.ArticuloCarrito aCarrito)
+        {
+            return db.DeleteAsync(aCarrito);
         }
 
         //Delete
@@ -34,8 +56,10 @@ namespace Saansa
             return db.DeleteAsync(articulo);
         }
 
-
-
+        public Task<List<Modelos.ArticuloCarrito>> GetItemsAsyncCarrito()
+        {
+            return db.Table<Modelos.ArticuloCarrito>().ToListAsync();
+        }
         //Read All Items
         public Task<List<Modelos.Articulo>> GetItemsAsync()
         {
@@ -43,9 +67,14 @@ namespace Saansa
         }
 
         //Read Item //INT
-        public Task<Modelos.Articulo> GetItemAsync(string cantidad)
+        public Task<Modelos.ArticuloCarrito> GetItemAsyncCarrito(string cantidad)
         {
-            return db.Table<Modelos.Articulo>().Where(i => i.Cantidad.Equals(cantidad)).FirstOrDefaultAsync();
+            return db.Table<Modelos.ArticuloCarrito>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();
+        }
+
+        public Task<Modelos.Articulo> GetItemAsync(string cantidad)
+        {   
+            return db.Table<Modelos.Articulo>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();
         }
     }
 }
