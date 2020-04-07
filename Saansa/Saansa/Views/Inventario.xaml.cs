@@ -33,9 +33,14 @@ namespace Saansa
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 Modelos.Articulo articulo = new Modelos.Articulo()
-                {   
+                {
                     Producto = txtNombre.Text,
-                    Id = Convert.ToInt32(txtCantidad.Text)
+                    Precio  = Convert.ToInt32(txtPrecio.Text),
+                    Id = Convert.ToInt32(txtCantidad.Text),
+                    MasterCategory = txtMainCategory.Text,
+                    Category1   = txtSub1.Text,
+                    Category2   = txtSub2.Text,
+                    Category3   = txtSub3.Text
                 };
 
                 //Add New Person
@@ -43,6 +48,11 @@ namespace Saansa
                 txtNombre.Text = string.Empty;
                 txtCantidad.Text = string.Empty;
                 txtProducto.Text = string.Empty;
+                txtPrecio.Text = string.Empty;
+                txtMainCategory.Text = string.Empty;
+                txtSub1.Text = string.Empty;
+                txtSub2.Text = string.Empty;
+                txtSub3.Text = string.Empty;
                 await DisplayAlert("Success", "Articulo añadido con exito", "OK");
                 //Get All Persons
                 var articuloLista = await App.SQLiteDb.GetItemsAsync();
@@ -69,12 +79,13 @@ namespace Saansa
                 if (articulo != null)
                 {
                     txtNombre.Text = articulo.Producto;
-                    await DisplayAlert("Success", "Nombre Articulo: " + articulo.Producto + "\n Cantidad:" + articulo.Id , "OK");
+                    await DisplayAlert("Success", "Identificacion: "+ articulo.Cantidad + "\nNombre Articulo: " + articulo.Producto + "\nCantidad: " + articulo.Id + "\nPrecio: "+ articulo.Precio
+                        + "\nCategoria: " +articulo.MasterCategory, "OK");
                 }
             }
             else
             {
-                await DisplayAlert("Required", "Ingresa Identificacion", "OK");
+                await DisplayAlert("Required", "Ingresa Nombre del Articulo", "OK");
             }
         }
 
@@ -85,14 +96,26 @@ namespace Saansa
                 Modelos.Articulo articulo = new Modelos.Articulo()
                 {
                     Cantidad = Convert.ToInt32(txtProducto.Text),
-                    Producto = txtNombre.Text
+                    Producto = txtNombre.Text,
+                    Precio = Convert.ToInt32(txtPrecio.Text),
+                    Id = Convert.ToInt32(txtCantidad.Text),
+                    MasterCategory = txtMainCategory.Text,
+                    Category1 = txtSub1.Text,
+                    Category2 = txtSub2.Text,
+                    Category3 = txtSub3.Text
                 };
 
                 //Update Person
                 await App.SQLiteDb.SaveItemAsync(articulo);
 
-                txtProducto.Text = string.Empty;
                 txtNombre.Text = string.Empty;
+                txtCantidad.Text = string.Empty;
+                txtProducto.Text = string.Empty;
+                txtPrecio.Text = string.Empty;
+                txtMainCategory.Text = string.Empty;
+                txtSub1.Text = string.Empty;
+                txtSub2.Text = string.Empty;
+                txtSub3.Text = string.Empty;
                 await DisplayAlert("Success", "Person Updated Successfully", "OK");
                 //Get All Persons
                 var articuloLista = await App.SQLiteDb.GetItemsAsync();
@@ -104,7 +127,7 @@ namespace Saansa
             }
             else
             {
-                await DisplayAlert("Required", "Please Enter PersonID", "OK");
+                await DisplayAlert("Required", "Please Enter Nombre articulo", "OK");
             }
         }
 
@@ -122,7 +145,7 @@ namespace Saansa
                     await App.SQLiteDb.DeleteItemAsync(articulo);
                     txtProducto.Text = string.Empty;
                     await DisplayAlert("Success", "Articulo Borrado", "OK");
-
+                    
                     //Get All Persons
                     var ListaArticulos = await App.SQLiteDb.GetItemsAsync();
                     if (ListaArticulos != null)

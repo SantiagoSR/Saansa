@@ -6,13 +6,18 @@
              Title="Inventario">
 
             <StackLayout BackgroundColor="#f5cda2">
-                <Image Margin="0,0,0,10" HeightRequest="100" Source="inventario.png" ></Image>
-                <Label Margin="0,0,0,10" Text="Mi Cafe Delicias" FontAttributes="Bold"
+                <Image Margin="0,0,0,0" HeightRequest="10" Source="inventario.png" ></Image>
+                <Label Margin="0,0,0,0" Text="Mi Cafe Delicias" FontAttributes="Bold"
                        FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
                 <Entry x:Name="txtProducto" Placeholder="Código Producto"></Entry>
                 <Entry x:Name="txtNombre" Placeholder="Nombre del producto"></Entry>
+                <Entry x:Name="txtPrecio" Placeholder="Precio del producto"></Entry>
                 <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
-                <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <Entry x:Name="txtMainCategory" Placeholder="Categoria general"></Entry>
+                <Entry x:Name="txtSub1" Placeholder="Subcategoria 1"></Entry>
+                <Entry x:Name="txtSub2" Placeholder="Subcategoria 2"></Entry>
+                <Entry x:Name="txtSub3" Placeholder="Subcategoria 3"></Entry>
+        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
                             BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked"

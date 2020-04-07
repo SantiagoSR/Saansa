@@ -32,7 +32,7 @@ namespace Saansa
         }
 
         public Task<int> SaveItemAsync(Modelos.Articulo articulo)
-        {   //articulo.Cantidad
+        {   //articulo.Cantidad. !string.IsNullOrEmpty(articulo.Cantidad)
             if (articulo.Cantidad != 0)
             {
                 //probando esto 
