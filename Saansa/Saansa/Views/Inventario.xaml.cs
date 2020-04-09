@@ -30,13 +30,14 @@ namespace Saansa
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNombre.Text))
+            if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtProducto.Text))
             {
                 Modelos.Articulo articulo = new Modelos.Articulo()
                 {
+                    Id = txtProducto.Text,
                     Producto = txtNombre.Text,
                     Precio  = Convert.ToInt32(txtPrecio.Text),
-                    Id = Convert.ToInt32(txtCantidad.Text),
+                    Cantidad = Convert.ToInt32(txtCantidad.Text),
                     MasterCategory = txtMainCategory.Text,
                     Category1   = txtSub1.Text,
                     Category2   = txtSub2.Text,
@@ -79,7 +80,7 @@ namespace Saansa
                 if (articulo != null)
                 {
                     txtNombre.Text = articulo.Producto;
-                    await DisplayAlert("Success", "Identificacion: "+ articulo.Cantidad + "\nNombre Articulo: " + articulo.Producto + "\nCantidad: " + articulo.Id + "\nPrecio: "+ articulo.Precio
+                    await DisplayAlert("Success", "Identificacion: "+ articulo.Id + "\nNombre Articulo: " + articulo.Producto + "\nCantidad: " + articulo.Cantidad + "\nPrecio: "+ articulo.Precio
                         + "\nCategoria: " +articulo.MasterCategory, "OK");
                 }
             }
@@ -95,10 +96,10 @@ namespace Saansa
             {
                 Modelos.Articulo articulo = new Modelos.Articulo()
                 {
-                    Cantidad = Convert.ToInt32(txtProducto.Text),
+                    Id = txtProducto.Text,
                     Producto = txtNombre.Text,
                     Precio = Convert.ToInt32(txtPrecio.Text),
-                    Id = Convert.ToInt32(txtCantidad.Text),
+                    Cantidad = Convert.ToInt32(txtCantidad.Text),
                     MasterCategory = txtMainCategory.Text,
                     Category1 = txtSub1.Text,
                     Category2 = txtSub2.Text,
