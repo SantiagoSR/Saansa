@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
@@ -33,13 +34,14 @@ namespace Saansa
 
         public Task<int> SaveItemAsync(Modelos.Articulo articulo)
         {   //articulo.Cantidad. !string.IsNullOrEmpty(articulo.Cantidad)
+
             if (articulo.Ayudante != 0)
             {
                 //probando esto 
                 //var articuloactulizado = GetItemAsync(articulo.Id);
-                
+
                 return db.UpdateAsync(articulo);
-            }  
+            }
             else
             {
                 return db.InsertAsync(articulo);
@@ -74,7 +76,7 @@ namespace Saansa
         }
 
         public Task<Modelos.Articulo> GetItemAsync(string cantidad)
-        {   
+        {
             return db.Table<Modelos.Articulo>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();
         }
     }

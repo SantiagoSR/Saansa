@@ -7,11 +7,11 @@ namespace Saansa.Modelos
 {
     public class Articulo
     {
-        [PrimaryKey,AutoIncrement]
-        public int Ayudante { get; set; }
-        [NotNull,Unique]
+        [PrimaryKey, AutoIncrement]
+        public int Ayudante  { get; set; }
+        [NotNull, Unique]
         public string Id { get; set; }
-        [NotNull]
+        [NotNull, Unique]
         public string Producto { get; set; }
         [NotNull]
         public int Precio { get; set; }
