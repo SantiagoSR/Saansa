@@ -33,12 +33,11 @@ namespace Saansa
         }
 
         public Task<int> SaveItemAsync(Modelos.Articulo articulo)
-        {   //articulo.Cantidad. !string.IsNullOrEmpty(articulo.Cantidad)
+        {   
 
             if (articulo.Ayudante != 0)
             {
-                //probando esto 
-                //var articuloactulizado = GetItemAsync(articulo.Id);
+                
 
                 return db.UpdateAsync(articulo);
             }
