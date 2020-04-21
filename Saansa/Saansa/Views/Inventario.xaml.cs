@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Saansa.Modelos;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Saansa.Views;
 
 namespace Saansa
 {
@@ -17,7 +18,7 @@ namespace Saansa
         {
             InitializeComponent();
         }
-        protected async override void OnAppearing()
+        /*protected async override void OnAppearing()
         {
             base.OnAppearing();
 
@@ -27,7 +28,7 @@ namespace Saansa
             {
                 lstArticulo.ItemsSource = articuloLista;
             }
-        }
+        }*/
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
@@ -57,12 +58,14 @@ namespace Saansa
                 txtSub3.Text = string.Empty;
                 await DisplayAlert("Success", "Articulo añadido con exito", "OK");
                 //Get All Persons
-                var articuloLista = await App.SQLiteDb.GetItemsAsync();
+               /* var articuloLista = await App.SQLiteDb.GetItemsAsync();
                 if (articuloLista != null)
                 {
                     lstArticulo.ItemsSource = articuloLista;
                 }
+                */
             }
+            
             else
             {
                 await DisplayAlert("Required", "Ingresa un Nombre!", "OK");
@@ -118,11 +121,12 @@ namespace Saansa
                 txtSub3.Text = string.Empty;
                 await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
                 //Get All Persons
-                var articuloLista = await App.SQLiteDb.GetItemsAsync();
+                /*var articuloLista = await App.SQLiteDb.GetItemsAsync();
                 if (articuloLista != null)
                 {
                     lstArticulo.ItemsSource = articuloLista;
                 }
+                */
 
             }
             else
@@ -147,11 +151,12 @@ namespace Saansa
                     await DisplayAlert("Success", "Articulo Borrado", "OK");
 
                     //Get All Persons
-                    var ListaArticulos = await App.SQLiteDb.GetItemsAsync();
+                  /*  var ListaArticulos = await App.SQLiteDb.GetItemsAsync();
                     if (ListaArticulos != null)
                     {
                         lstArticulo.ItemsSource = ListaArticulos;
                     }
+                    */
                 }
             }
             else
@@ -160,6 +165,10 @@ namespace Saansa
             }
         }
 
+        void Button_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new VistaInventario());
+        }
 
 
     }

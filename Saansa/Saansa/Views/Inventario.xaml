@@ -29,18 +29,11 @@
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Borrar" Clicked="BtnDelete_Clicked"
                             BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
-                <ListView x:Name="lstArticulo" BackgroundColor="#f5cda2">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout>
-                                    <Label Text="{Binding Producto}"/>
-                                    <Label Text="{Binding Id}" HorizontalOptions="EndAndExpand"
-                                           TextColor="Black"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
+                
+        <StackLayout BackgroundColor="#f5cda2">
+            <Button Text="Ver Inventario" Clicked="Button_Clicked" BackgroundColor="White"
+                    BorderColor="#b27b4b" BorderWidth="3" CornerRadius="20" Margin="10"/>
+        </StackLayout>
+
+    </StackLayout>
 </ContentPage>
