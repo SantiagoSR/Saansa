@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Saansa.Views.CarritoDeVentas">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#f5cda2">
+        <StackLayout x:Name ="stackPrincipal" BackgroundColor="#f5cda2">
             <ListView x:Name="listaArticulosCarrito" BackgroundColor="#f5cda2">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -22,8 +22,20 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <Button Text="Pagar" BackgroundColor="White"
-                    BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15" Margin="10"/>
+            <Button x:Name="generateQR"
+                    Text="Generar Código QR"
+                    Clicked="generateQR_Clicked"
+                    BackgroundColor="White"
+                    BorderColor="#b27b4b" 
+                    BorderWidth="3"
+                    CornerRadius="15"
+                    Margin="10"/>
+            <Button Text="Pagar" 
+                    BackgroundColor="White"
+                    BorderColor="#b27b4b"
+                    BorderWidth="3" 
+                    CornerRadius="15"
+                    Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

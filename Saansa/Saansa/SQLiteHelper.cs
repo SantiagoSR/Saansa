@@ -69,14 +69,19 @@ namespace Saansa
         }
 
         //Read Item //INT
-        public Task<Modelos.ArticuloCarrito> GetItemAsyncCarrito(string cantidad)
+        public Task<Modelos.ArticuloCarrito> GetItemAsyncCarrito(string nombre)
         {
-            return db.Table<Modelos.ArticuloCarrito>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();
+            return db.Table<Modelos.ArticuloCarrito>().Where(i => i.Producto.Equals(nombre)).FirstOrDefaultAsync();
         }
 
-        public Task<Modelos.Articulo> GetItemAsync(string cantidad)
+        public Task<Modelos.Articulo> GetItemAsync(string nombre)
         {
-            return db.Table<Modelos.Articulo>().Where(i => i.Producto.Equals(cantidad)).FirstOrDefaultAsync();
+            return db.Table<Modelos.Articulo>().Where(i => i.Producto.Equals(nombre)).FirstOrDefaultAsync();
+        }
+
+        public Task<Modelos.Articulo> GetItemAsyncCodigo(string id)
+        {
+            return db.Table<Modelos.Articulo>().Where(i => i.Id.Equals(id)).FirstOrDefaultAsync();
         }
     }
 }
