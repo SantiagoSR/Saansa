@@ -3,13 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              mc:Ignorable="d"
              x:Class="Saansa.Ventas"
              Title="Ventas">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#f5cda2">
+        
+        <StackLayout BackgroundColor="White" VerticalOptions="EndAndExpand">
             <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="#b27b4b" BorderWidth="3" CornerRadius="20" Margin="10"/>
+                    BorderColor="WhiteSmoke" BorderWidth="3" CornerRadius="20" Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

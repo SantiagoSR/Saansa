@@ -7,12 +7,12 @@
              x:Class="Saansa.Scanner"
              Title="Escáner">
     <ContentPage.Content>
-        <StackLayout Padding="5" BackgroundColor="#f5cda2" x:Name="stackPrincipal">
+        <StackLayout Padding="5" BackgroundColor="White" x:Name="stackPrincipal">
             <Button
                 Text="Escanear"
                 Command="{Binding ScannerCommand}"
                 BackgroundColor="White"
-                BorderColor="#b27b4b"
+                BorderColor="WhiteSmoke"
                 BorderWidth="3"
                 CornerRadius="5"
                 Margin="20"/>
