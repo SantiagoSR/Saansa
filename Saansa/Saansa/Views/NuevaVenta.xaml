@@ -6,21 +6,27 @@
              mc:Ignorable="d"
              x:Class="Saansa.Views.NuevaVenta">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#f5cda2">
-            <ListView x:Name="listART" BackgroundColor="#f5cda2">
+        <StackLayout BackgroundColor="White">
+            <ListView x:Name="listART" BackgroundColor="White">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal">
-                                <StackLayout HorizontalOptions="StartAndExpand">
+                                <StackLayout HorizontalOptions="StartAndExpand" >
                                     <Label x:Name="nombreProducto"
                                            Text="{Binding Producto}"
-                                           Margin="5,0,0,0"
+                                           Padding="7,7,7,7"
                                            FontSize="Large"/>
+                                </StackLayout>
+                                <StackLayout>
+                                    <Label x:Name="precioProducto"
+                                           Text="{Binding Precio}"
+                                           VerticalOptions="CenterAndExpand"
+                                           HorizontalOptions="CenterAndExpand"/>
                                 </StackLayout>
                                 <Button x:Name="subButton"
                                         Text="-"
-                                        BackgroundColor="#b27b4b"
+                                        BackgroundColor="WhiteSmoke"
                                         Margin="5,5,0,5"
                                         Clicked="subButton_Clicked"
                                         FontSize="Small"
@@ -29,13 +35,13 @@
                                 <StackLayout>
                                     <Entry Text="0" x:Name="productQuantity"
                                            Placeholder="0" MaxLength="2"
-                                           Margin="5,0,0,0" Keyboard="Numeric"
+                                           Margin="5,5,0,5" Keyboard="Numeric"
                                            FontSize="Small"
                                            HorizontalOptions="Center"/>
                                 </StackLayout>
                                 <Button x:Name="addButton"
                                         Text="+"
-                                        BackgroundColor="#b27b4b"
+                                        BackgroundColor="WhiteSmoke"
                                         Margin="5,5,0,5"
                                         Clicked="addButton_Clicked"
                                         FontSize="Small"
@@ -43,8 +49,9 @@
                                         WidthRequest="30"/>
                                 <Button x:Name="addCart"
                                         Text="Agregar"
-                                        BackgroundColor="#b27b4b"
+                                        BackgroundColor="WhiteSmoke"
                                         Margin="5,3,5,3"
+                                        Padding="4"
                                         Clicked="addCart_Clicked"
                                         FontSize="Small"
                                         TextColor="Black"/>
@@ -55,7 +62,7 @@
             </ListView>
             <StackLayout VerticalOptions="EndAndExpand">
                 <Button x:Name="goToCart" Text="Ir al carrito" BackgroundColor="White" Clicked="goToCart_Clicked"
-                         BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15" Margin="10"/>
+                         BorderColor="Orange" BorderWidth="2" CornerRadius="15" Margin="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

@@ -13,6 +13,10 @@ namespace Saansa.Views
         {
             InitializeComponent();
             listaArticulosCarrito.ItemsSource = App.listaCarrito;
+            int price = 0;
+            foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
+                price += a.Precio;
+            }
         }
     }
 }

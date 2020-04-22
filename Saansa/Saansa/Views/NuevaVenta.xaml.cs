@@ -12,6 +12,7 @@ namespace Saansa.Views
         public NuevaVenta()
         {
             InitializeComponent();
+            
             App.listaCarrito = new List<Modelos.ArticuloCarrito>();
         }
 
@@ -31,7 +32,7 @@ namespace Saansa.Views
             pQuantity++;
             var buttonClickHandler = (Button)sender;
             StackLayout parentstacklayout = (StackLayout)buttonClickHandler.Parent;
-            StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[2];
+            StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[3];
             Entry productQuantity = (Entry)stacklayout1.Children[0];
             productQuantity.Text = pQuantity.ToString();
         }
@@ -40,11 +41,16 @@ namespace Saansa.Views
         {
             var buttonClickHandler = (Button)sender;
             StackLayout parentstacklayout = (StackLayout)buttonClickHandler.Parent;
-            StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[2];
+            StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[3];
             Entry productQuantity = (Entry)stacklayout1.Children[0];
 
-            StackLayout stacklayout2 = (StackLayout)parentstacklayout.Children[0];
-            Label nombreProducto = (Label)stacklayout2.Children[0];
+            StackLayout stackLayout2 = (StackLayout)parentstacklayout.Children[1];
+            Label precioProducto = (Label)stackLayout2.Children[0];
+
+            StackLayout stacklayout3 = (StackLayout)parentstacklayout.Children[0];
+            Label nombreProducto = (Label)stacklayout3.Children[0];
+
+            //int p = Convert.ToInt16(precioProducto.Text);
 
 
             if (!string.IsNullOrEmpty(productQuantity.Text) && !productQuantity.Text.Equals("0"))
@@ -52,7 +58,9 @@ namespace Saansa.Views
                 App.listaCarrito.Add(new Modelos.ArticuloCarrito
                 {
                     Producto = nombreProducto.Text,
-                    Cantidad = Convert.ToInt16(productQuantity.Text)
+                    Cantidad = Convert.ToInt16(productQuantity.Text),
+                    Precio = Convert.ToInt16(precioProducto.Text) * Convert.ToInt16(productQuantity.Text)
+
                 }); 
             }
             else
@@ -75,9 +83,11 @@ namespace Saansa.Views
             }
             var buttonClickHandler = (Button)sender;
             StackLayout parentstacklayout = (StackLayout)buttonClickHandler.Parent;
-            StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[2];
+            StackLayout stacklayout1 = (StackLayout)parentstacklayout.Children[3];
             Entry productQuantity = (Entry)stacklayout1.Children[0];
             productQuantity.Text = pQuantity.ToString();
         }
+
+
     }
 }
