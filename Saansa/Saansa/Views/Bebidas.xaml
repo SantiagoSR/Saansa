@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Saansa.Views.VistaInventario">
+             x:Class="Saansa.Views.Bebidas">
     <ContentPage.Content>
         <StackLayout BackgroundColor="#f5cda2">
             <Label Text="Inventario Café delicias" FontSize="Medium" HorizontalOptions="Center"/>
@@ -23,11 +23,6 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout BackgroundColor="#f5cda2">
-                <Button Text="Bebidas" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="#b27b4b" BorderWidth="3" CornerRadius="20" Margin="10"/>
-            </StackLayout>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

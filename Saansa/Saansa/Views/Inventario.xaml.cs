@@ -68,7 +68,7 @@ namespace Saansa
             
             else
             {
-                await DisplayAlert("Required", "Ingresa un Nombre!", "OK");
+                await DisplayAlert("Required", "Ingresa un Codigo", "OK");
             }
         }
 
