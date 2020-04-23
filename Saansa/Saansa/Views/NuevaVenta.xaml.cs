@@ -9,17 +9,18 @@ namespace Saansa.Views
 {
     public partial class NuevaVenta : ContentPage
     {
-
-        public NuevaVenta()
+        string c;
+        public NuevaVenta(string category)
         {
             InitializeComponent();
             App.listaCarrito = new List<Modelos.ArticuloCarrito>();
+            c = category;
         }
 
         protected async override void OnAppearing()
         {
             base.OnAppearing();
-            var articuloLista = await App.SQLiteDb.GetItemsAsync();
+            var articuloLista = await App.SQLiteDb.GetItemsAsyncCategory(c);
             if (articuloLista != null)
             {
                 listART.ItemsSource = articuloLista;

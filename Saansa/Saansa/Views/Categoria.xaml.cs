@@ -18,27 +18,27 @@ namespace Saansa.Views
 
         void Otros_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NuevaVenta());
+            Navigation.PushAsync(new NuevaVenta("Otros"));
         }
 
         void Medi_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NuevaVenta());
+            Navigation.PushAsync(new NuevaVenta("Medicamentos"));
         }
 
         void Resposteria_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NuevaVenta());
+            Navigation.PushAsync(new NuevaVenta("Reposteria"));
         }
 
         void Bebidas_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NuevaVenta());
+            Navigation.PushAsync(new NuevaVenta("Bebidas"));
         }
 
         void Mecato_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new NuevaVenta());
+            Navigation.PushAsync(new NuevaVenta("Mecato"));
         }
 
         async void goToCart1_Clicked_1(System.Object sender, System.EventArgs e)

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Saansa.Views.VistaInventario">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <Label Text="Inventario Café delicias" FontSize="Medium" HorizontalOptions="Center"/>
+            <ListView x:Name="MyList" ItemTapped="My_List_ItemTapped">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding Id}"/>
+                                <StackLayout Orientation="Vertical">
+                                    <Label Text="{Binding Producto}"/>
+                                    <Label Text="{Binding Cantidad}"/>
+                                </StackLayout>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+            <StackLayout BackgroundColor="White">
+                <Button Text="Bebidas" Clicked="Button_Clicked" BackgroundColor="White"
+                    BorderColor="LightGray" BorderWidth="3" CornerRadius="20" Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+        
+    </ContentPage.Content>
+</ContentPage>

@@ -78,8 +78,10 @@ namespace Saansa.Views
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
+                    //NuevaVenta.crearListaConQR(scanResult.Text);
                     await Navigation.PopAsync();
-                    TextoCodigo = scanResult.Text;
+                    //Ir al carrito de ventas
+                    await Navigation.PushAsync(new CarritoDeVentas());
                 });
             };
         }

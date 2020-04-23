@@ -5,7 +5,7 @@
              x:Class="Saansa.Inventario"
              Title="Inventario">
 
-            <StackLayout BackgroundColor="#f5cda2">
+            <StackLayout BackgroundColor="White">
                 <Image Margin="0,0,0,0" HeightRequest="10" Source="inventario.png" ></Image>
                 <Label Margin="0,0,0,0" Text="Mi Cafe Delicias" FontAttributes="Bold"
                        FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
@@ -19,29 +19,20 @@
                 <Entry x:Name="txtSub3" Placeholder="Subcategoria 3"></Entry>
         <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
+                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
+                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
                 <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnUpdate" WidthRequest="200" Text="Actualizar" Clicked="BtnUpdate_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
+                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Borrar" Clicked="BtnDelete_Clicked"
-                            BackgroundColor="White" BorderColor="#b27b4b" BorderWidth="3" CornerRadius="15"/>
+                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
-                <ListView x:Name="lstArticulo" BackgroundColor="#f5cda2">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout>
-                                    <Label Text="{Binding Producto}"/>
-                                    <Label Text="{Binding Id}" HorizontalOptions="EndAndExpand"
-                                           TextColor="Black"/>
-                                    <Label Text="{Binding Cantidad}"/>
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
-            </StackLayout>
+                <StackLayout BackgroundColor="White">
+            <Button Text="Ver Inventario" Clicked="Button_Clicked" BackgroundColor="White"
+                    BorderColor="LightGray" BorderWidth="3" CornerRadius="20" Margin="10"/>
+        </StackLayout>
+
+    </StackLayout>
 </ContentPage>

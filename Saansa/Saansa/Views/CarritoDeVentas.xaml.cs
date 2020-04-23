@@ -30,6 +30,8 @@ namespace Saansa.Views
                     Console.WriteLine(articulo.Cantidad);
                     articulo.Cantidad = articulo.Cantidad - a.Cantidad;
                     Console.WriteLine(articulo.Cantidad);
+
+                    await App.SQLiteDb.SaveItemAsync(articulo);
                 }
 
             }
