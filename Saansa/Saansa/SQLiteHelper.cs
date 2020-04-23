@@ -86,6 +86,7 @@ namespace Saansa
         public Task<List<Modelos.Articulo>> GetItemsAsyncCategory(string category)
         {
             return db.Table<Modelos.Articulo>().Where(i => i.Id.Equals(category)).ToListAsync();
+
         }
 
     }
