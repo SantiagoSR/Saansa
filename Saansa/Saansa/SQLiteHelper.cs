@@ -37,10 +37,6 @@ namespace Saansa
 
             if (articulo.Ayudante != 0)
             {
-                //probando esto 
-                //var articuloactulizado = GetItemAsync(articulo.Id);
-                
-             
                     return db.UpdateAsync(articulo);
                 
                 
