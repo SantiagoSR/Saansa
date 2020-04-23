@@ -6,6 +6,7 @@
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              mc:Ignorable="d"
              x:Class="Saansa.Ventas"
+             NavigationPage.HasBackButton="False"
              Title="Ventas">
     <ContentPage.Content>
         

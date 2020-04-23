@@ -23,23 +23,33 @@ namespace Saansa.Views
 
         void Medi_Clicked(System.Object sender, System.EventArgs e)
         {
+            Navigation.PushAsync(new NuevaVenta());
         }
 
         void Resposteria_Clicked(System.Object sender, System.EventArgs e)
         {
+            Navigation.PushAsync(new NuevaVenta());
         }
 
         void Bebidas_Clicked(System.Object sender, System.EventArgs e)
         {
+            Navigation.PushAsync(new NuevaVenta());
         }
 
         void Mecato_Clicked(System.Object sender, System.EventArgs e)
         {
+            Navigation.PushAsync(new NuevaVenta());
         }
 
-        void goToCart1_Clicked_1(System.Object sender, System.EventArgs e)
+        async void goToCart1_Clicked_1(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new CarritoDeVentas());
+            if (App.listaCarrito != null)
+            {
+                await Navigation.PushAsync(new CarritoDeVentas());
+            }
+            else {
+                await DisplayAlert("Necesario", "Tienes que agregar productos al carrito para poder ir a él.", "OK");
+            }
         }
     }
 }
