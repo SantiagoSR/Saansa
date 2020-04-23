@@ -16,18 +16,8 @@ namespace Saansa
         public Scanner()
         {
             InitializeComponent();
-
             BindingContext = new ScannerModel(this.Navigation);
                 
-        }
-
-        void EntryCompleted(object sender, EventArgs e)
-        {
-            if (txtQR.Text != "")
-            {
-                var generator = new QRGenerator(txtQR.Text);
-                stackPrincipal.Children[1] = QRGenerator.barcode;
-            }
         }
     }
 }

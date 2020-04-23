@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Saansa.Views.Categoria">
+    <ContentPage.Content>
+        <StackLayout BackgroundColor="White">
+            <StackLayout>
+                <Button x:Name="Mecato" Text="Mecato" FontSize="Large" Padding="4" Margin="20,100,20,10" Clicked="Mecato_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                <Button x:Name="Bebidas" Text="Bebidas" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Bebidas_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                <Button x:Name="Resposteria" Text="Reposteria" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Resposteria_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                <Button x:Name="Medi" Text="Medicamentos" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Medi_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                <Button x:Name="Otros" Text="Otros" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Otros_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+            </StackLayout>
+            <StackLayout VerticalOptions="EndAndExpand">
+                <Button x:Name="goToCart1" Text="Ir al carrito" BackgroundColor="White" Clicked="goToCart1_Clicked_1"
+                         BorderColor="Orange" BorderWidth="2" CornerRadius="15" Margin="10"/>
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
