@@ -39,15 +39,10 @@ namespace Saansa
             {
                 //probando esto 
                 //var articuloactulizado = GetItemAsync(articulo.Id);
-                try
-                {
+                
+             
                     return db.UpdateAsync(articulo);
-                }
-                catch(Exception e)
-                {
-                    Console.WriteLine("Exception Update: "+ e);
-                    return db.UpdateAsync(articulo);
-                }
+                
                 
             }
             else
