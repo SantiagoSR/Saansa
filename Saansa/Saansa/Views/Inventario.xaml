@@ -11,7 +11,8 @@
                        FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
                 <Entry x:Name="txtProducto" Placeholder="Código Producto"></Entry>
                 <Entry x:Name="txtNombre" Placeholder="Nombre del producto"></Entry>
-                <Entry x:Name="txtPrecio" Placeholder="Precio del producto"></Entry>
+                <Entry x:Name="txtCosto" Placeholder="Costo del producto"></Entry>
+                <Entry x:Name="txtPrecio" Placeholder="Precio de Venta"></Entry>
                 <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
                 <Entry x:Name="txtMainCategory" Placeholder="Categoria general"></Entry>
                 <Entry x:Name="txtSub1" Placeholder="Subcategoria 1"></Entry>
@@ -30,8 +31,8 @@
                             BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
                 <StackLayout BackgroundColor="White">
-            <Button Text="Ver Inventario" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="LightGray" BorderWidth="3" CornerRadius="20" Margin="10"/>
+            <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="LightBlue"
+                    BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
         </StackLayout>
 
     </StackLayout>

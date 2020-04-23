@@ -15,6 +15,7 @@ namespace Saansa.Modelos
         public string Producto { get; set; }
         [NotNull]
         public int Precio { get; set; }
+        public int Costo { get; set; }
         public int Cantidad { get; set; }
         public string MasterCategory { get; set; }
         public string Category1 { get; set; }
