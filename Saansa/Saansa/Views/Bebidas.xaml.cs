@@ -23,7 +23,7 @@ namespace Saansa.Views
             base.OnAppearing();
 
             //Get All Products
-            var articuloLista = await App.SQLiteDb.GetItemAsyncCategoria("Bebidas");
+            var articuloLista = await App.SQLiteDb.GetItemsAsyncCategory("Bebidas");
             if (articuloLista != null)
             {
                 MyList.ItemsSource = articuloLista;
