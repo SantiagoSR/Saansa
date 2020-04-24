@@ -4,16 +4,19 @@ using System.Collections;
 using SQLite;
 
 using Xamarin.Forms;
+using Saansa.Modelos;
 
 namespace Saansa.Views
 {
     public partial class CarritoDeVentas : ContentPage
     {
+        public string strQR;
         public CarritoDeVentas()
         {
             InitializeComponent();
             listaArticulosCarrito.ItemsSource = App.listaCarrito;
             int price = 0;
+            this.strQR = "";
             foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
                 price += a.Precio;
             }
@@ -37,6 +40,18 @@ namespace Saansa.Views
             }
 
             await Navigation.PushAsync(new MainPage());
+        }
+
+        void generateQR_Clicked(System.Object sender, System.EventArgs e)
+        {
+            //Iterar sobre los artículos de la lista
+            foreach (ArticuloCarrito articulo in App.listaCarrito)
+            {
+                this.strQR += articulo.Id + articulo.Cantidad.ToString();
+            }
+
+            var generator = new QRGenerator(this.strQR);
+            Navigation.PushAsync(new QRDisplay(this.strQR));
         }
     }
 }
