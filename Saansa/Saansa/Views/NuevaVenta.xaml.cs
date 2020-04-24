@@ -142,6 +142,7 @@ namespace Saansa.Views
                         if (string.Compare(a.Producto, nuevo.Producto) == 0)
                         {
                             a.Cantidad = nuevo.Cantidad;
+                            a.Precio = nuevo.Precio;
                         }
                     }
                 }
