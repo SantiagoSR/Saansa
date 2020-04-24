@@ -99,6 +99,7 @@ namespace Saansa
                 txtNombre.Text = string.Empty;
                 txtCantidad.Text = string.Empty;
                 txtProducto.Text = string.Empty;
+                txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
                 txtMainCategory.Text = string.Empty;
                 txtSub1.Text = string.Empty;
