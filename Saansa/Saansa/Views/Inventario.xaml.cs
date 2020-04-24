@@ -27,6 +27,7 @@ namespace Saansa
                 {
                     Id = txtProducto.Text,
                     Producto = txtNombre.Text,
+                    Costo = Convert.ToInt32(txtCosto.Text),
                     Precio = Convert.ToInt32(txtPrecio.Text),
                     Cantidad = Convert.ToInt32(txtCantidad.Text),
                     MasterCategory = txtMainCategory.Text,
@@ -40,6 +41,7 @@ namespace Saansa
                 txtNombre.Text = string.Empty;
                 txtCantidad.Text = string.Empty;
                 txtProducto.Text = string.Empty;
+                txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
                 txtMainCategory.Text = string.Empty;
                 txtSub1.Text = string.Empty;
@@ -89,6 +91,7 @@ namespace Saansa
                 articulo.Category3 = (string.Equals("0", txtSub3.Text + "0")) ? articulo.Category3 : txtSub3.Text;
                 articulo.MasterCategory = (string.Equals("0", txtMainCategory.Text + "0")) ? articulo.MasterCategory : txtMainCategory.Text;
                 articulo.Precio = (string.Equals("0", txtPrecio.Text + "0")) ? articulo.Precio : Convert.ToInt32(txtPrecio.Text);
+                articulo.Costo = (String.Equals("0", txtCosto.Text + "0")) ? articulo.Costo : Convert.ToInt32(txtCosto.Text);
                 articulo.Producto = (string.Equals("0", txtProducto.Text + "0")) ? articulo.Producto : txtNombre.Text;
 
                 await App.SQLiteDb.SaveItemAsync(articulo);
@@ -96,6 +99,7 @@ namespace Saansa
                 txtNombre.Text = string.Empty;
                 txtCantidad.Text = string.Empty;
                 txtProducto.Text = string.Empty;
+                txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
                 txtMainCategory.Text = string.Empty;
                 txtSub1.Text = string.Empty;
