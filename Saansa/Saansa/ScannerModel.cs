@@ -78,7 +78,7 @@ namespace Saansa.Views
 
                 Device.BeginInvokeOnMainThread(async () =>
                 {
-                    //NuevaVenta.crearListaConQR(scanResult.Text);
+                    NuevaVenta.crearListaConQR(scanResult.Text);
                     await Navigation.PopAsync();
                     //Ir al carrito de ventas
                     await Navigation.PushAsync(new CarritoDeVentas());

@@ -6,23 +6,17 @@
              mc:Ignorable="d"
              x:Class="Saansa.Views.Bebidas">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="#f5cda2">
-            <Label Text="Inventario Café delicias" FontSize="Medium" HorizontalOptions="Center"/>
-            <ListView x:Name="MyList" ItemTapped="My_List_ItemTapped">
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Id}"/>
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding Producto}"/>
-                                    <Label Text="{Binding Cantidad}"/>
-                                </StackLayout>
-                            </StackLayout>
-                        </ViewCell>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+        <StackLayout>
+            <Button x:Name="Mecato" Text="Mecato" FontSize="Large" Padding="4" Margin="20,100,20,10" Clicked="Mecato_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+            <Button x:Name="Bebida" Text="Bebidas" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Liquidos_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+            <Button x:Name="Resposteria" Text="Reposteria" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Resposteria_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+            <Button x:Name="Medi" Text="Medicamentos" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Medi_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+            <Button x:Name="Otros" Text="Otros" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Otros_Clicked"
+                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

@@ -12,7 +12,7 @@
         
         <StackLayout BackgroundColor="White" VerticalOptions="EndAndExpand">
             <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="WhiteSmoke" BorderWidth="3" CornerRadius="20" Margin="10"/>
+                    BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

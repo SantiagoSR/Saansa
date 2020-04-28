@@ -8,26 +8,49 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="White">
             <Label Text="Inventario Café delicias" FontSize="Medium" HorizontalOptions="Center"/>
+            <Grid>
+                <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+                    <ColumnDefinition Width="30*" />
+
+                </Grid.ColumnDefinitions>
+                <Label  Grid.Column="0" Grid.Row="0" Text="ID" />
+                <Label  Grid.Column="1" Grid.Row="0" Text="Producto"/>
+                <Label Grid.Column="2" Grid.Row="0" Text="Cant"/>
+                <Label Grid.Column="3" Grid.Row="0" Text="CT"/>
+                <Label Grid.Column="4" Grid.Row="0" Text="PV"/>                
+            </Grid>
             <ListView x:Name="MyList" ItemTapped="My_List_ItemTapped">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="{Binding Id}"/>
-                                <StackLayout Orientation="Vertical">
-                                    <Label Text="{Binding Producto}"/>
-                                    <Label Text="{Binding Cantidad}"/>
-                                </StackLayout>
-                            </StackLayout>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="30*" />
+                                    <ColumnDefinition Width="30*" />
+                                    <ColumnDefinition Width="30*" />
+                                    <ColumnDefinition Width="30*" />
+                                    <ColumnDefinition Width="30*" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Column="0" Text="{Binding Id}"/>
+                                <Label Grid.Column="1" Text="{Binding Producto}"/>
+                                <Label Grid.Column="2" Text="{Binding Cantidad}"/>
+                                <Label Grid.Column="3" Text="{Binding Precio}"/>
+                                <Label Grid.Column="4" Text="{Binding Costo}"/>
+                            </Grid>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout BackgroundColor="White">
-                <Button Text="Bebidas" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="LightGray" BorderWidth="3" CornerRadius="20" Margin="10"/>
-            </StackLayout>
         </StackLayout>
-        
     </ContentPage.Content>
 </ContentPage>

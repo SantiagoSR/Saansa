@@ -14,11 +14,17 @@ namespace Saansa
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inventario : ContentPage
     {
+
+        private readonly List<string> CategoryMain = new List<string>
+        {
+            "Bebidas", "Mecato", "Medicamentos", "Otros", "Reposteria"
+        };
         public Inventario()
         {
             InitializeComponent();
+            var ayudante = CategoryMain;
+            
         }
-
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtProducto.Text))
@@ -149,9 +155,20 @@ namespace Saansa
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new VistaInventario());
+            Navigation.PushAsync(new Bebidas());
         }
-
+       /*
+        void SearchMainCategory(object sender, System.EventArgs e)
+        {
+            var MainCatSearch = CategoryMain.Where(c => c.Contains(txtMainCategory.Text));
+            ListMainCategory.ItemsSource = MainCatSearch;
+        }
+        */
+        /*void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
+        {
+            var helper = e.SelectedItem as string;
+            var CategoryView = new 
+        }*/
 
     }
 }

@@ -15,27 +15,34 @@ namespace Saansa.Views
         public Bebidas()
         {
             InitializeComponent();
-            //App.listainventario = new List<Modelos.Articulo>();
+            
         }
         
-        protected async override void OnAppearing()
+        void Otros_Clicked(System.Object sender, System.EventArgs e)
         {
-            base.OnAppearing();
-
-            //Get All Products
-            var articuloLista = await App.SQLiteDb.GetItemsAsyncCategory("Bebidas");
-            if (articuloLista != null)
-            {
-                MyList.ItemsSource = articuloLista;
-            }
+            Navigation.PushAsync(new VistaInventario("Otros"));
         }
-        private async void My_List_ItemTapped(object sender, ItemTappedEventArgs e)
+
+        void Medi_Clicked(System.Object sender, System.EventArgs e)
         {
-            var ayudante = e.Item as Modelos.Articulo;
-            Modelos.Articulo detalles = ayudante;
-            await DisplayAlert("Nombre: " + detalles.Producto, "\nIdentificador:" + detalles.Id +
-                 "\nCantidad: " + detalles.Cantidad + "\nPrecio: " + detalles.Precio, "OK");
-
+            Navigation.PushAsync(new VistaInventario("Medicamentos"));
         }
+
+        void Resposteria_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new VistaInventario("Reposteria"));
+        }
+
+        void Liquidos_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new VistaInventario("Bebidas"));
+        }
+
+        void Mecato_Clicked(System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new VistaInventario("Mecato"));
+        }
+
+       
     }
 }

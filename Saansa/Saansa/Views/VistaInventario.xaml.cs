@@ -12,11 +12,14 @@ namespace Saansa.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class VistaInventario : ContentPage
+        
     {
-        public VistaInventario()
+        string c;
+        public VistaInventario(string category)
         {
             InitializeComponent();
             //App.listainventario = new List<Modelos.Articulo>();
+            this.c = category;
 
         }
         protected async override void OnAppearing()
@@ -24,7 +27,7 @@ namespace Saansa.Views
             base.OnAppearing();
 
             //Get All Products
-            var articuloLista = await App.SQLiteDb.GetItemsAsync();
+            var articuloLista = await App.SQLiteDb.GetItemsAsyncCategory(c);
             if (articuloLista != null)
             {
                 MyList.ItemsSource = articuloLista;
@@ -39,9 +42,6 @@ namespace Saansa.Views
                 "\nCantidad: " + detalles.Cantidad + "\nPrecio: " + detalles.Precio,"OK");
 
         }
-        void Button_Clicked(System.Object sender, System.EventArgs e)
-        {
-            Navigation.PushAsync(new Bebidas());
-        }
+        
     }
 }
