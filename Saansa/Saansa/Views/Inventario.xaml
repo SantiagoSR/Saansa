@@ -18,7 +18,7 @@
                 <Entry x:Name="txtSub1" Placeholder="Subcategoria 1"></Entry>
                 <Entry x:Name="txtSub2" Placeholder="Subcategoria 2"></Entry>
                 <Entry x:Name="txtSub3" Placeholder="Subcategoria 3"></Entry>
-        <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
                             BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked"
@@ -31,9 +31,9 @@
                             BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
                 <StackLayout BackgroundColor="White">
-            <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="LightBlue"
-                    BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
-        </StackLayout>
+                    <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="LightBlue"
+                            BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
+                </StackLayout>
 
-    </StackLayout>
+            </StackLayout>
 </ContentPage>

@@ -118,11 +118,14 @@ namespace Saansa.Views
 
             if (!string.IsNullOrEmpty(productQuantity.Text) && !productQuantity.Text.Equals("0"))
             {
+                var articulo = await App.SQLiteDb.GetItemAsync(nombreProducto.Text);
                 pQuantity = 0;
                 //Creamos el nuevo articulo del carrito
                 Modelos.ArticuloCarrito nuevo = new Modelos.ArticuloCarrito { Producto = nombreProducto.Text,
                     Cantidad = Convert.ToInt16(productQuantity.Text),
-                    Precio = Convert.ToInt16(precioProducto.Text) * Convert.ToInt16(productQuantity.Text)
+                    Precio = Convert.ToInt16(precioProducto.Text) * Convert.ToInt16(productQuantity.Text),
+                    Id = articulo.Id
+
                 };
                 //Vemos si el articulo ya fue creado y está en la lista del carrito.
                 bool containsItem = false; 
@@ -142,6 +145,7 @@ namespace Saansa.Views
                         if (string.Compare(a.Producto, nuevo.Producto) == 0)
                         {
                             a.Cantidad = nuevo.Cantidad;
+                            a.Precio = nuevo.Precio;
                         }
                     }
                 }
