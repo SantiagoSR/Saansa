@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Saansa": {
+      "commandName": "Project",
+      "sqlDebugging": true
+    }
+  }
+}

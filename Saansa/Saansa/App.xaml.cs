@@ -6,7 +6,7 @@ using Xamarin.Forms.Xaml;
 using SQLite;
 using Saansa.Modelos;
 using System.Collections.Generic;
-
+using Saansa.Views;
 
 namespace Saansa
 {
@@ -18,8 +18,9 @@ namespace Saansa
         public App()
         {
             InitializeComponent();
-            MainPage = new NavigationPage(new MainPage());
-           
+            //MainPage = new NavigationPage(new MainPage());
+            MainPage = new NavigationPage(new PaginaPrincipal());
+
         }
         public static SQLiteHelper SQLiteDb
         {
