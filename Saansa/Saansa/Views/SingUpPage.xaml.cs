@@ -43,7 +43,8 @@ namespace Saansa.Views
 
                             int result = cmd.ExecuteNonQuery();
                             if (result < 0) {
-                                Console.WriteLine("Error inserting data to DB");
+
+                                await DisplayAlert("Paso esto: ", "Error añadiendo usuario", "test");
                             }
 
                             await DisplayAlert("Exito", "Se añadio tu usuario", "Ok");

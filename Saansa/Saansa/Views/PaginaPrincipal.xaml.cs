@@ -22,22 +22,57 @@ namespace Saansa.Views
 
         async private void LogIn_Clicked(object sender, EventArgs e)
         {
+            var User = "";
+            var contra = "";
             MySqlConnection con = new MySqlConnection(conexion);
             try
             { 
             
                 if(con.State == ConnectionState.Closed)
                 {
-                con.Open();
-                    await DisplayAlert("Paso esto: ","Se Conecto A la base de datos", "Wiiii");
-                } 
+                    
+                    string sql = "SELECT Nombre_Usuario, Contra FROM users WHERE Nombre_Usuario = '"+txtUsuario.Text+ "' AND Contra = '"+ txtContraseña.Text+"'";
+                    MySqlCommand command = new MySqlCommand(sql, con);
+
+                    con.Open();
+                    MySqlDataReader reader = command.ExecuteReader();
+                    int count = 0;
+                    while (reader.Read()) { 
+                         User = reader.GetString("Nombre_Usuario");
+                         contra = reader.GetString("Contra");
+                        count = count + 1;
+                    }
+
+                    if (count == 1)
+                    {
+                        await Navigation.PushAsync(new MainPage());
+                    }
+                    else if (count > 1)
+
+                    {
+
+                        await DisplayAlert("Paso esto: ", "Usuario y Contraseña duplicados", "Ok");
+
+                    }
+
+                    else
+
+                    {
+
+                        await DisplayAlert("Paso esto: ", "Usuario ó Contraseña no validos", "Ok");
+
+                    }
+
+
+                }
             }
             catch (MySqlException ex)
                 {
-                await DisplayAlert("Paso esto: ", Convert.ToString(ex), "");
+                await DisplayAlert("Paso esto: ", Convert.ToString(ex), "Ok");
             }
             finally
             {
+                await DisplayAlert("Bienvenido", User +" "+ contra , "Ok");
                 con.Close();
             }
         }
