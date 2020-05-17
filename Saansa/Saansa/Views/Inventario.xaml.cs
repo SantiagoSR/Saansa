@@ -112,13 +112,7 @@ namespace Saansa
                 txtSub2.Text = string.Empty;
                 txtSub3.Text = string.Empty;
                 await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
-                //Get All Persons
-                /*var articuloLista = await App.SQLiteDb.GetItemsAsync();
-                if (articuloLista != null)
-                {
-                    lstArticulo.ItemsSource = articuloLista;
-                }
-                */
+               
 
             }
             else

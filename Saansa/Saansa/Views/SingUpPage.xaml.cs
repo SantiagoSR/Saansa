@@ -25,25 +25,34 @@ namespace Saansa.Views
         {
             if(!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(txtContraseña.Text) && !string.IsNullOrEmpty(txtCorreo.Text))
             {
-                MySqlConnection con = new MySqlConnection("Server=mi-cafe-delicias.mysql.database.azure.com;Port=3306;database=base_datos_proyecto; User Id = ssantacrur@mi-cafe-delicias;Password=proyectoIntegrador1;charset=utf8");
+                MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
                 try
                 {
 
                     if (con.State == ConnectionState.Closed)
                     {
-                        con.Open(); 
-                        MySqlCommand cmd = new MySqlCommand("INSERT INTO users(Nombre_Usuario,Contra,Correo) VALUES(@user,@pass,@correo)", con);
-                        cmd.Parameters.AddWithValue("@user", txtUsuario.Text);
-                        cmd.Parameters.AddWithValue("@pass", txtContraseña.Text);
-                        cmd.Parameters.AddWithValue("@correo",txtCorreo.Text);
-                        cmd.Parameters.AddWithValue("@telefono",Convert.ToInt32(txtTelefono.Text));
-                        cmd.ExecuteNonQuery();
-                        await DisplayAlert("CHIDO", "Se añadio tu usuario", "Wiiii");
+                        con.Open();
+                        string sql = "INSERT INTO users(Nombre_Usuario,Contra,Correo) VALUES(@Nombre_Usuario,@Contra,@Correo)";
+
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con)) {
+                            cmd.Parameters.AddWithValue("@Nombre_Usuario",txtUsuario.Text);
+                            cmd.Parameters.AddWithValue("@Contra", txtContraseña.Text);
+                            cmd.Parameters.AddWithValue("@Correo",txtCorreo.Text);
+                            //cmd.Parameters.AddWithValue("@Telefono",Convert.ToInt32(txtTelefono.Text));
+                            cmd.CommandType = CommandType.Text;
+
+                            int result = cmd.ExecuteNonQuery();
+                            if (result < 0) {
+                                Console.WriteLine("Error inserting data to DB");
+                            }
+
+                            await DisplayAlert("Exito", "Se añadio tu usuario", "Ok");
+                        }
                     }
                 }
                 catch (MySqlException ex)
                 {
-                    await DisplayAlert("Paso esto: ", Convert.ToString(ex), "");
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex), "test");
                 }
                 finally
                 {
