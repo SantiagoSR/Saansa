@@ -136,13 +136,7 @@ namespace Saansa
                     txtProducto.Text = string.Empty;
                     await DisplayAlert("Success", "Articulo Borrado", "OK");
 
-                    //Get All Persons
-                  /*  var ListaArticulos = await App.SQLiteDb.GetItemsAsync();
-                    if (ListaArticulos != null)
-                    {
-                        lstArticulo.ItemsSource = ListaArticulos;
-                    }
-                    */
+                   
                 }
             }
             else

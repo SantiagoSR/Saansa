@@ -33,6 +33,7 @@ namespace Saansa.Views
                     {
                         //Aqui me falta añadir que Si no quiere poner el telefono entonces se haga otro comando por eso esta Comentado el @Telefono
                         con.Open();
+
                         if (string.IsNullOrEmpty(txtTelefono.Text)) { 
                         string sql = "INSERT INTO users(Nombre_Usuario,Contra,Correo) VALUES(@Nombre_Usuario,@Contra,@Correo)";
 
