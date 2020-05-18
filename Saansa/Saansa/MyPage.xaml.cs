@@ -5,7 +5,7 @@ using Xamarin.Forms;
 
 namespace Saansa
 {
-    public partial class MyPage : ContentPage
+    public partial class MyPage : TabbedPage
     {
         public MyPage()
         {

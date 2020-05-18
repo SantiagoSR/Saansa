@@ -4,7 +4,7 @@
              xmlns:local="clr-namespace:Saansa"
              x:Class="Saansa.Inventario"
              Title="Inventario">
-
+    <ScrollView>
             <StackLayout BackgroundColor="White">
                 <Image Margin="0,0,0,0" HeightRequest="10" Source="inventario.png" ></Image>
                 <Label Margin="0,0,0,0" Text="Mi Cafe Delicias" FontAttributes="Bold"
@@ -30,10 +30,10 @@
                     <Button x:Name="btnDelete" WidthRequest="200" Text="Borrar" Clicked="BtnDelete_Clicked"
                             BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                 </StackLayout>
-                <StackLayout BackgroundColor="White">
-                    <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="LightBlue"
+            <StackLayout BackgroundColor="White">
+                <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="LightBlue"
                             BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
-                </StackLayout>
-
             </StackLayout>
+        </StackLayout>
+    </ScrollView>
 </ContentPage>
