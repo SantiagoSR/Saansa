@@ -5,7 +5,7 @@
              x:Class="Saansa.Inventario"
              Title="Inventario">
     <ScrollView>
-            <StackLayout BackgroundColor="White">
+            <StackLayout BackgroundColor="White" Padding="30">
                 <Image Margin="0,0,0,0" HeightRequest="10" Source="inventario.png" ></Image>
                 <Label Margin="0,0,0,0" Text="Mi Cafe Delicias" FontAttributes="Bold"
                        FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
@@ -13,12 +13,24 @@
                 <Entry x:Name="txtNombre" Placeholder="Nombre del producto"></Entry>
                 <Entry x:Name="txtCosto" Placeholder="Costo del producto"></Entry>
                 <Entry x:Name="txtPrecio" Placeholder="Precio de Venta"></Entry>
-                <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
-                <Entry x:Name="txtMainCategory" Placeholder="Categoria general"></Entry>
-                <Entry x:Name="txtSub1" Placeholder="Subcategoria 1"></Entry>
+            <Entry x:Name="txtCantidad" Placeholder="Cantidad del Producto"></Entry>
+            <Label Text="Categoria General" ></Label>
+            <Picker x:Name="MainPicker" >
+                <Picker.Items>
+                    <x:String>Bebidas</x:String>
+                    <x:String>Mecato</x:String>
+                    <x:String>Reposteria</x:String>
+                    <x:String>Medicamentos</x:String>
+                    <x:String>Otros</x:String>
+                </Picker.Items>
+            </Picker>
+                
+            <Entry x:Name="txtSub1" Placeholder="Subcategoria 1"></Entry>
                 <Entry x:Name="txtSub2" Placeholder="Subcategoria 2"></Entry>
                 <Entry x:Name="txtSub3" Placeholder="Subcategoria 3"></Entry>
-                <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                
+           
+            <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
                             BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
                     <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked"

@@ -24,6 +24,7 @@ namespace Saansa
             InitializeComponent();
             var ayudante = CategoryMain;
             
+            
         }
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
@@ -36,7 +37,7 @@ namespace Saansa
                     Costo = Convert.ToInt32(txtCosto.Text),
                     Precio = Convert.ToInt32(txtPrecio.Text),
                     Cantidad = Convert.ToInt32(txtCantidad.Text),
-                    MasterCategory = txtMainCategory.Text,
+                    MasterCategory = Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]),
                     Category1 = txtSub1.Text,
                     Category2 = txtSub2.Text,
                     Category3 = txtSub3.Text
@@ -49,11 +50,13 @@ namespace Saansa
                 txtProducto.Text = string.Empty;
                 txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
-                txtMainCategory.Text = string.Empty;
+       
                 txtSub1.Text = string.Empty;
                 txtSub2.Text = string.Empty;
                 txtSub3.Text = string.Empty;
-                await DisplayAlert("Success", "Articulo añadido con exito", "OK");
+                string name = MainPicker.Items[MainPicker.SelectedIndex];
+                await DisplayAlert("Success", "Articulo añadido con exito " + name, "OK");
+
             }
             
             else
@@ -69,7 +72,7 @@ namespace Saansa
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 //Get Person
-                //var articulo = await App.SQLiteDb.GetItemAsync(Convert.ToInt32(txtProducto.Text))
+                
                 var articulo = await App.SQLiteDb.GetItemAsync(txtNombre.Text);
                 if (articulo != null)
                 {
@@ -95,7 +98,7 @@ namespace Saansa
                 articulo.Category1 = (string.Equals("0", txtSub1.Text + "0")) ? articulo.Category1 : txtSub1.Text;
                 articulo.Category2 = (string.Equals("0", txtSub2.Text + "0")) ? articulo.Category2 : txtSub2.Text;
                 articulo.Category3 = (string.Equals("0", txtSub3.Text + "0")) ? articulo.Category3 : txtSub3.Text;
-                articulo.MasterCategory = (string.Equals("0", txtMainCategory.Text + "0")) ? articulo.MasterCategory : txtMainCategory.Text;
+                articulo.MasterCategory = (string.Equals("0", Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]) + "0")) ? articulo.MasterCategory : Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]);
                 articulo.Precio = (string.Equals("0", txtPrecio.Text + "0")) ? articulo.Precio : Convert.ToInt32(txtPrecio.Text);
                 articulo.Costo = (String.Equals("0", txtCosto.Text + "0")) ? articulo.Costo : Convert.ToInt32(txtCosto.Text);
                 articulo.Producto = (string.Equals("0", txtProducto.Text + "0")) ? articulo.Producto : txtNombre.Text;
@@ -107,7 +110,7 @@ namespace Saansa
                 txtProducto.Text = string.Empty;
                 txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
-                txtMainCategory.Text = string.Empty;
+               
                 txtSub1.Text = string.Empty;
                 txtSub2.Text = string.Empty;
                 txtSub3.Text = string.Empty;
@@ -149,18 +152,6 @@ namespace Saansa
         {
             Navigation.PushAsync(new Bebidas());
         }
-       /*
-        void SearchMainCategory(object sender, System.EventArgs e)
-        {
-            var MainCatSearch = CategoryMain.Where(c => c.Contains(txtMainCategory.Text));
-            ListMainCategory.ItemsSource = MainCatSearch;
-        }
-        */
-        /*void OnItemSelected(object sender, SelectedItemChangedEventArgs e)
-        {
-            var helper = e.SelectedItem as string;
-            var CategoryView = new 
-        }*/
 
     }
 }

@@ -8,7 +8,7 @@
     <ContentPage.Content>
         <StackLayout Padding="4">
             <Entry x:Name="txtUsuario" Placeholder="Usuario" FontSize="Large" Margin="20,50,20,10"/>
-            <Entry x:Name="txtContraseña" Placeholder="Contraseña" FontSize="Large" Margin="20,50,20,10"/>
+            <Entry x:Name="txtContraseña" Placeholder="Contraseña" FontSize="Large" Margin="20,50,20,10" IsPassword="True"/>
             <Entry x:Name="txtCorreo" Placeholder="Correo"  FontSize="Large" Margin="20,50,20,10"/>
             <Entry x:Name="txtTelefono" Placeholder="Telefono" FontSize="Large" Margin="20,50,20,10"/>
             <Button x:Name="Guardar" Text="Registrar" FontSize="Large" Padding="4" Margin="20,50,20,10" Clicked="Guardar_Clicked"
