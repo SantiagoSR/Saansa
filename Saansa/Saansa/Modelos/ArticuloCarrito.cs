@@ -20,6 +20,7 @@ namespace Saansa.Modelos
         public int Precio { get; set; }
         public int Cantidad { get; set; }
         public string MasterCategory { get; set; }
+
         public int Popularidad { get; set; }
     }
 }

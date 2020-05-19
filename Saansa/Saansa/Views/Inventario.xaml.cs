@@ -8,6 +8,8 @@ using Saansa.Modelos;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using Saansa.Views;
+using MySql.Data.MySqlClient;
+using System.Data;
 
 namespace Saansa
 {
@@ -23,12 +25,12 @@ namespace Saansa
         {
             InitializeComponent();
             var ayudante = CategoryMain;
-            
-            
+
+
         }
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtProducto.Text))
+            if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtProducto.Text) && !string.IsNullOrEmpty(txtPrecio.Text) && !string.IsNullOrEmpty(txtCosto.Text))
             {
                 Modelos.Articulo articulo = new Modelos.Articulo()
                 {
@@ -38,30 +40,65 @@ namespace Saansa
                     Precio = Convert.ToInt32(txtPrecio.Text),
                     Cantidad = Convert.ToInt32(txtCantidad.Text),
                     MasterCategory = Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]),
-                    Category1 = txtSub1.Text,
-                    Category2 = txtSub2.Text,
-                    Category3 = txtSub3.Text
+                    Category1 = Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]),
+                    Category2 = Convert.ToString(SubCat2.Items[SubCat2.SelectedIndex]),
+                    Category3 = Convert.ToString(SubCat3.Items[SubCat3.SelectedIndex])
                 };
+                MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
 
                 //Add New Person
-                await App.SQLiteDb.SaveItemAsync(articulo);
-                txtNombre.Text = string.Empty;
-                txtCantidad.Text = string.Empty;
-                txtProducto.Text = string.Empty;
-                txtCosto.Text = string.Empty;
-                txtPrecio.Text = string.Empty;
-       
-                txtSub1.Text = string.Empty;
-                txtSub2.Text = string.Empty;
-                txtSub3.Text = string.Empty;
-                string name = MainPicker.Items[MainPicker.SelectedIndex];
-                await DisplayAlert("Success", "Articulo añadido con exito " + name, "OK");
+                try
+                {
+
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        con.Open();
+
+                        string sql = "INSERT INTO articulos(Id,Producto,Precio,Costo,Cantidad,Categoria_General,SubCategoria1,SubCategoria2,SubCategoria3) VALUES(@Id,@Producto,@Precio,@Costo,@Cantidad,@Categoria_General,@SubCategoria1,@SubCategoria2,@SubCategoria3)";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                        {
+                            cmd.Parameters.AddWithValue("@Id", txtProducto.Text);
+                            cmd.Parameters.AddWithValue("@Producto", txtNombre.Text);
+                            cmd.Parameters.AddWithValue("@Precio", Convert.ToInt32(txtCosto.Text));
+                            cmd.Parameters.AddWithValue("@Costo", Convert.ToInt32(txtCosto.Text));
+                            cmd.Parameters.AddWithValue("@Cantidad", Convert.ToInt32(txtCantidad.Text));
+                            cmd.Parameters.AddWithValue("@Categoria_General", Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]));
+                            cmd.Parameters.AddWithValue("@SubCategoria1", Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]));
+                            cmd.Parameters.AddWithValue("@SubCategoria2", Convert.ToString(SubCat2.Items[SubCat2.SelectedIndex]));
+                            cmd.Parameters.AddWithValue("@SubCategoria3", Convert.ToString(SubCat3.Items[SubCat3.SelectedIndex]));
+                            cmd.CommandType = CommandType.Text;
+                            int result = cmd.ExecuteNonQuery();
+                            if (result < 0)
+                            {
+                                await DisplayAlert("Paso esto: ", "Error añadiendo Articulo", "test");
+                            }
+
+
+                            await App.SQLiteDb.SaveItemAsync(articulo);
+
+                            txtNombre.Text = string.Empty;
+                            txtCantidad.Text = string.Empty;
+                            txtProducto.Text = string.Empty;
+                            txtCosto.Text = string.Empty;
+                            txtPrecio.Text = string.Empty;
+                            await DisplayAlert("Success", "Articulo añadido con exito ", "OK");
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex), "test");
+                }
+                finally
+                {
+                    con.Close();
+
+                }
 
             }
-            
             else
             {
-                await DisplayAlert("Required", "Ingresa un Codigo", "OK");
+                await DisplayAlert("Required", "Recuerda Ingresar un Codigo, Nombre producto, Precio y Costo de este", "OK");
             }
         }
 
@@ -95,9 +132,9 @@ namespace Saansa
 
                 //Aparentemente dejar el texto vacío no es equivalente a "", por eso el +"0"
                 articulo.Cantidad = (string.Equals("0", txtCantidad.Text + "0")) ? articulo.Cantidad : Convert.ToInt32(txtCantidad.Text);
-                articulo.Category1 = (string.Equals("0", txtSub1.Text + "0")) ? articulo.Category1 : txtSub1.Text;
-                articulo.Category2 = (string.Equals("0", txtSub2.Text + "0")) ? articulo.Category2 : txtSub2.Text;
-                articulo.Category3 = (string.Equals("0", txtSub3.Text + "0")) ? articulo.Category3 : txtSub3.Text;
+                articulo.Category1 = (string.Equals("0", Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]) + "0")) ? articulo.Category1 : Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]);
+                articulo.Category2 = (string.Equals("0", Convert.ToString(SubCat2.Items[SubCat2.SelectedIndex]) + "0")) ? articulo.Category2 : Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]);
+                articulo.Category3 = (string.Equals("0", Convert.ToString(SubCat3.Items[SubCat3.SelectedIndex]) + "0")) ? articulo.Category3 : Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]);
                 articulo.MasterCategory = (string.Equals("0", Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]) + "0")) ? articulo.MasterCategory : Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]);
                 articulo.Precio = (string.Equals("0", txtPrecio.Text + "0")) ? articulo.Precio : Convert.ToInt32(txtPrecio.Text);
                 articulo.Costo = (String.Equals("0", txtCosto.Text + "0")) ? articulo.Costo : Convert.ToInt32(txtCosto.Text);
@@ -110,10 +147,6 @@ namespace Saansa
                 txtProducto.Text = string.Empty;
                 txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
-               
-                txtSub1.Text = string.Empty;
-                txtSub2.Text = string.Empty;
-                txtSub3.Text = string.Empty;
                 await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
                
 

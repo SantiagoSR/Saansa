@@ -31,7 +31,6 @@ namespace Saansa.Views
 
                     if (con.State == ConnectionState.Closed)
                     {
-                        //Aqui me falta añadir que Si no quiere poner el telefono entonces se haga otro comando por eso esta Comentado el @Telefono
                         con.Open();
 
                         if (string.IsNullOrEmpty(txtTelefono.Text)) { 

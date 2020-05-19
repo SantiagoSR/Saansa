@@ -24,12 +24,33 @@
                     <x:String>Otros</x:String>
                 </Picker.Items>
             </Picker>
-                
-            <Entry x:Name="txtSub1" Placeholder="Subcategoria 1"></Entry>
-                <Entry x:Name="txtSub2" Placeholder="Subcategoria 2"></Entry>
-                <Entry x:Name="txtSub3" Placeholder="Subcategoria 3"></Entry>
-                
-           
+            <Label Text="SubCategoria 1" ></Label>
+            <Picker x:Name="SubCat1" >
+                <Picker.Items>
+                    <x:String>Agua</x:String>
+                    <x:String>Gaseosa</x:String>
+                    <x:String>Jugos</x:String>
+                    <x:String>Energizantes</x:String>
+                    <x:String>Calientes</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="SubCategoria 2" ></Label>
+            <Picker x:Name="SubCat2" >
+                <Picker.Items>
+                    <x:String>Cerveza</x:String>
+                    <x:String>Licores</x:String>
+                </Picker.Items>
+            </Picker>
+            <Label Text="SubCategoria 3" ></Label>
+            <Picker x:Name="SubCat3" >
+                <Picker.Items>
+                    <x:String>Botella</x:String>
+                    <x:String>Lata</x:String>
+                    <x:String>Tragos</x:String>
+                    <x:String>Completos</x:String>
+                </Picker.Items>
+            </Picker>
+
             <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
                     <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
                             BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
