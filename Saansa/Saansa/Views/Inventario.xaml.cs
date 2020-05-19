@@ -16,15 +16,9 @@ namespace Saansa
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Inventario : ContentPage
     {
-
-        private readonly List<string> CategoryMain = new List<string>
-        {
-            "Bebidas", "Mecato", "Medicamentos", "Otros", "Reposteria"
-        };
         public Inventario()
         {
             InitializeComponent();
-            var ayudante = CategoryMain;
             
             
         }
