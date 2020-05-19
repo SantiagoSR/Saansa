@@ -28,6 +28,10 @@ namespace Saansa
             
             
         }
+        private MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
+        private string id, producto, categoria_general;
+        private int cantidad, precio;
+
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtProducto.Text) && !string.IsNullOrEmpty(txtPrecio.Text) && !string.IsNullOrEmpty(txtCosto.Text))
@@ -44,7 +48,7 @@ namespace Saansa
                     Category2 = Convert.ToString(SubCat2.Items[SubCat2.SelectedIndex]),
                     Category3 = Convert.ToString(SubCat3.Items[SubCat3.SelectedIndex])
                 };
-                MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
+               
 
                 //Add New Person
                 try
@@ -102,21 +106,68 @@ namespace Saansa
             }
         }
 
-
+        
 
         private async void BtnRead_Clicked(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 //Get Person
-
                 var articulo = await App.SQLiteDb.GetItemAsync(txtNombre.Text);
-                if (articulo != null)
+                try
                 {
-                    txtNombre.Text = articulo.Producto;
-                    await DisplayAlert("Success", "Identificacion: " + articulo.Id + "\nNombre Articulo: " + articulo.Producto + "\nCantidad: " + articulo.Cantidad + "\nPrecio: " + articulo.Precio
-                        + "\nCategoria: " + articulo.MasterCategory, "OK");
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        
+                        
+                        string sql = "SELECT Id,Producto,Cantidad,Precio,Categoria_General FROM articulos WHERE Producto= '"+txtNombre.Text+ "'";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                        {
+                            con.Open();
+                            MySqlDataReader reader = cmd.ExecuteReader();
+                            int count = 0;
+                            while (reader.Read())
+                            {
+                                id = reader.GetString("Id");
+                                producto = reader.GetString("Producto");
+                                cantidad = reader.GetInt32("Cantidad");
+                                precio = reader.GetInt32("Precio");
+                                categoria_general = reader.GetString("Categoria_General");
+
+                                count = count + 1;
+                            }
+                            if (count == 0)
+                            {
+                                await DisplayAlert("Alerta","No hay articulos con ese nombre en BD","OK");
+                            }else if (count == 1)
+                            {
+                                await DisplayAlert("EXITO", "Identificacion: " + id + "\nNombre Articulo: " + producto + "\nCantidad: " + cantidad + "\nPrecio: " + precio
+                        + "\nCategoria: " + categoria_general ,"OK");
+                            }else if (count >=2)
+                            {
+                                await DisplayAlert("Alerta", "Articulos duplicados", "OK");
+
+                            }
+                            
+                        }
+                    }
                 }
+                catch(MySqlException ex)
+                {
+                    
+                    if (articulo != null && con == null && con.State == ConnectionState.Closed)
+                    {
+                        txtNombre.Text = articulo.Producto;
+                        await DisplayAlert("Success", "Identificacion: " + articulo.Id + "\nNombre Articulo: " + articulo.Producto + "\nCantidad: " + articulo.Cantidad + "\nPrecio: " + articulo.Precio
+                            + "\nCategoria: " + articulo.MasterCategory, "OK");
+                    }
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex) + "Fallo en conexion, se mostro en la copia local", "test");
+                }
+                finally
+                {
+                    con.Close();
+                }
+                
             }
             else
             {
@@ -138,16 +189,47 @@ namespace Saansa
                 articulo.MasterCategory = (string.Equals("0", Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]) + "0")) ? articulo.MasterCategory : Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]);
                 articulo.Precio = (string.Equals("0", txtPrecio.Text + "0")) ? articulo.Precio : Convert.ToInt32(txtPrecio.Text);
                 articulo.Costo = (String.Equals("0", txtCosto.Text + "0")) ? articulo.Costo : Convert.ToInt32(txtCosto.Text);
-                articulo.Producto = (string.Equals("0", txtProducto.Text + "0")) ? articulo.Producto : txtNombre.Text;
+                articulo.Producto = (string.Equals("0", txtNombre.Text + "0")) ? articulo.Producto : txtNombre.Text;
+                try
+                {
 
-                await App.SQLiteDb.SaveItemAsync(articulo);
-
-                txtNombre.Text = string.Empty;
-                txtCantidad.Text = string.Empty;
-                txtProducto.Text = string.Empty;
-                txtCosto.Text = string.Empty;
-                txtPrecio.Text = string.Empty;
-                await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        string sql = "UPDATE articulos SET Producto='"+Convert.ToString(articulo.Producto)+ "',Precio='"+Convert.ToInt32(articulo.Precio)+ "',Costo='"+Convert.ToInt32(articulo.Costo)+ "',Cantidad='"+Convert.ToInt32(articulo.Cantidad)+ "',Categoria_General='"+Convert.ToString(articulo.MasterCategory)+ "',SubCategoria1='"+Convert.ToString(articulo.Category1)+ "',SubCategoria2='" + Convert.ToString(articulo.Category2) + "',SubCategoria3='" + Convert.ToString(articulo.Category3) + "' WHERE Producto = '" + txtNombre.Text + "'";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                        {
+                            con.Open();
+                            MySqlDataReader reader = cmd.ExecuteReader();
+                            int count = 0;
+                            while (reader.Read())
+                            {
+                                count = count + 1;
+                            }
+                            if (count == 0)
+                            {
+                                await App.SQLiteDb.SaveItemAsync(articulo);
+                                txtNombre.Text = string.Empty;
+                                txtCantidad.Text = string.Empty;
+                                txtProducto.Text = string.Empty;
+                                txtCosto.Text = string.Empty;
+                                txtPrecio.Text = string.Empty;
+                                await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
+                            }
+                            else if (count >= 2)
+                            {
+                                await DisplayAlert("Alerta", "Articulos duplicados y actualizados", "OK");
+                            }
+                        }
+                    }
+                }
+                catch (MySqlException ex)
+                {
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex) + "Fallo en conexion Intentelo mas tarde", "test");
+                }
+                finally
+                {
+                    con.Close();
+                }
 
 
             }
@@ -161,26 +243,58 @@ namespace Saansa
         {   //txtProducto
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
-                //Get Person
-                //var articulo = await App.SQLiteDb.GetItemAsync(Convert.ToInt32(txtProducto.Text));
+
                 var articulo = await App.SQLiteDb.GetItemAsync(txtNombre.Text);
 
-                if (articulo != null)
+                try
                 {
-                    //Delete Person
-                    await App.SQLiteDb.DeleteItemAsync(articulo);
-                    txtProducto.Text = string.Empty;
-                    await DisplayAlert("Success", "Articulo Borrado", "OK");
 
+                    if (con.State == ConnectionState.Closed)
+                    {
+                        string sql = "DELETE FROM articulos WHERE Producto = '" + txtNombre.Text +"'";
+                        using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                        {
+                            con.Open();
+                            MySqlDataReader reader = cmd.ExecuteReader();
+                            int count = 0;
+                            while (reader.Read())
+                            {
+                                count = count+ 1;
+                            }
+                            if (count == 0)
+                            {
+                                await DisplayAlert("Success", "Articulo Borrado Server", "OK");
+                                if (articulo != null)
+                                {
+                                    //Delete Person
+                                      await App.SQLiteDb.DeleteItemAsync(articulo);
+                                    txtProducto.Text = string.Empty;
+                                }
 
+                            }
+                            else if (count >= 2)
+                            {
+                                await DisplayAlert("Alerta", "Articulos duplicados y borrados", "OK");
+                            }
+                        }
+                    }
                 }
+                catch (MySqlException ex)
+                {
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex) + "Fallo en conexion Intentelo mas tarde", "test");
+                }
+                finally
+                {
+                    con.Close();
+                }
+
+               
             }
             else
             {
-                await DisplayAlert("Required", "Please Enter Id Articulo", "OK");
+                await DisplayAlert("Required", "Please Enter Nombre del  Articulo", "OK");
             }
         }
-
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
             Navigation.PushAsync(new Bebidas());
