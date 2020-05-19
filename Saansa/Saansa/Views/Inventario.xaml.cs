@@ -25,8 +25,8 @@ namespace Saansa
         {
             InitializeComponent();
             var ayudante = CategoryMain;
-
-
+            
+            
         }
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
@@ -109,7 +109,7 @@ namespace Saansa
             if (!string.IsNullOrEmpty(txtNombre.Text))
             {
                 //Get Person
-                
+
                 var articulo = await App.SQLiteDb.GetItemAsync(txtNombre.Text);
                 if (articulo != null)
                 {
@@ -148,7 +148,7 @@ namespace Saansa
                 txtCosto.Text = string.Empty;
                 txtPrecio.Text = string.Empty;
                 await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
-               
+
 
             }
             else
@@ -172,7 +172,7 @@ namespace Saansa
                     txtProducto.Text = string.Empty;
                     await DisplayAlert("Success", "Articulo Borrado", "OK");
 
-                   
+
                 }
             }
             else
