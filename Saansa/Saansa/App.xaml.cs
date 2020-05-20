@@ -1,15 +1,9 @@
 ﻿using System;
 using System.IO;
-using System.Collections;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
-using SQLite;
 using Saansa.Modelos;
 using System.Collections.Generic;
 using Saansa.Views;
-using MySql.Data.MySqlClient;
-using System.Data;
-using Saansa.Modelos;
 
 namespace Saansa
 {

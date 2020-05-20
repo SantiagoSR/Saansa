@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Saansa.Views.CarritoDeVentas">
     <ContentPage.Content>
-        <StackLayout BackgroundColor="Blue">
+        <StackLayout BackgroundColor="White">
             <ListView x:Name="listaArticulosCarrito" BackgroundColor="White">
                 <ListView.ItemTemplate>
                     <DataTemplate>
@@ -14,29 +14,29 @@
                                            TextColor="Black" FontSize="Large"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
-                                    <Label x:Name="PrecioProducto"  Text="{Binding Precio}" VerticalOptions="CenterAndExpand"
-                                           TextColor="LightGray" HorizontalOptions="EndAndExpand"/>
                                     <Label x:Name="CantidadProducto" Text="{Binding Cantidad}" Padding="7"
-                                           TextColor="Black" FontSize="Large"/>
+                                           TextColor="LightGray" FontSize="Large"/>
+                                    <Label x:Name="PrecioProducto"  Text="{Binding Precio}" VerticalOptions="CenterAndExpand"
+                                           TextColor="Black" HorizontalOptions="EndAndExpand" FontSize="Large" Padding="7"/>
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
-            <StackLayout BackgroundColor="Aqua" Orientation="Horizontal">
-                <StackLayout BackgroundColor="Red">
+            <StackLayout Orientation="Horizontal">
+                <StackLayout>
                     <Label Text="Precio total de la venta:" HorizontalOptions="StartAndExpand"
-                           Padding="7"/>
+                           Padding="7" Margin="10,0,10,0" FontSize="Medium"/>
                 </StackLayout>
-                <StackLayout BackgroundColor="Yellow" HorizontalOptions="EndAndExpand">
+                <StackLayout HorizontalOptions="EndAndExpand">
                     <Label Text="{Binding price}" Padding="7"/>
                 </StackLayout>
             </StackLayout>
-            <Button Text="Pagar" BackgroundColor="White" Clicked="Button_Clicked"
-                    BorderColor="Orange" BorderWidth="2" CornerRadius="15" Margin="10"/>
-            <Button x:Name="QRbut" Text="Generar CodigoQR" BackgroundColor="WhiteSmoke" Clicked="generateQR_Clicked"
-                    BorderColor="LightGray" BorderWidth="2" CornerRadius="15" Margin="10,0,10,10"/>
+            <Button Text="Pagar" BackgroundColor="#673AB7" Clicked="Button_Clicked"
+                    CornerRadius="15" Margin="10"/>
+            <Button x:Name="QRbut" Text="Generar CodigoQR" BackgroundColor="#26A69A" Clicked="generateQR_Clicked"
+                    CornerRadius="15" Margin="10,0,10,10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

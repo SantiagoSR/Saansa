@@ -5,7 +5,7 @@
              x:Class="Saansa.Inventario"
              Title="Inventario">
     <ScrollView>
-            <StackLayout BackgroundColor="White" Padding="30">
+            <StackLayout Padding="20">
                 <Image Margin="0,0,0,0" HeightRequest="10" Source="inventario.png" ></Image>
                 <Label Margin="0,0,0,0" Text="Mi Cafe Delicias" FontAttributes="Bold"
                        FontSize="Large" TextColor="#b27b4b" HorizontalTextAlignment="Center" ></Label>
@@ -52,20 +52,20 @@
             </Picker>
 
             <StackLayout  HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnAdd" WidthRequest="200" Text="Añadir" Clicked="BtnAdd_Clicked"
-                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
-                    <Button x:Name="btnRead" WidthRequest="200" Text="Buscar" Clicked="BtnRead_Clicked"
-                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
-                </StackLayout>
-                <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
-                    <Button x:Name="btnUpdate" WidthRequest="200" Text="Actualizar" Clicked="BtnUpdate_Clicked"
-                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
-                    <Button x:Name="btnDelete" WidthRequest="200" Text="Borrar" Clicked="BtnDelete_Clicked"
-                            BackgroundColor="White" BorderColor="LightGray" BorderWidth="3" CornerRadius="15"/>
-                </StackLayout>
-            <StackLayout BackgroundColor="White">
-                <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="LightBlue"
-                            BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
+                    <Button x:Name="btnAdd" WidthRequest="150" Text="Añadir" Clicked="BtnAdd_Clicked"
+                            BackgroundColor="#673AB7" CornerRadius="15" Margin="0,0,10,5"/>
+                    <Button x:Name="btnRead" WidthRequest="150" Text="Buscar" Clicked="BtnRead_Clicked" 
+                            BackgroundColor="#673AB7" CornerRadius="15" Margin="10,0,0,5"/>
+            </StackLayout>
+            <StackLayout HorizontalOptions="CenterAndExpand" Orientation="Horizontal">
+                    <Button x:Name="btnUpdate" WidthRequest="150" Text="Actualizar" Clicked="BtnUpdate_Clicked"
+                            BackgroundColor="#673AB7"  CornerRadius="15" Margin="0,5,10,0"/>
+                    <Button x:Name="btnDelete" WidthRequest="150" Text="Borrar" Clicked="BtnDelete_Clicked"
+                            BackgroundColor="#673AB7"  CornerRadius="15" Margin="10,5,0,0"/>
+            </StackLayout>
+            <StackLayout>
+                <Button Text="Ver Inventario Completo" Clicked="Button_Clicked" BackgroundColor="#26A69A"
+                        CornerRadius="20" Margin="10"/>
             </StackLayout>
         </StackLayout>
     </ScrollView>

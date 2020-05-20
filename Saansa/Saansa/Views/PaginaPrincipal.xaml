@@ -8,11 +8,11 @@
     <ContentPage.Content>
         <StackLayout>
             <Entry x:Name="txtUsuario" Placeholder="Usuario"  FontSize="Large" Margin="20,100,20,10"></Entry>
-            <Entry x:Name="txtContraseña" Placeholder="Contraseña" FontSize="Large" Margin="20,100,20,10" IsPassword="True"></Entry>
-            <Button x:Name="LogIn" Text="Login" FontSize="Large" Padding="4" Margin="20,100,20,10" Clicked="LogIn_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
-            <Button x:Name="SingUp" Text="SingUp" FontSize="Large" Padding="4" Margin="20,100,20,10" Clicked="SingUp_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+            <Entry x:Name="txtContraseña" Placeholder="Contraseña" FontSize="Large" Margin="20,30,20,30" IsPassword="True"></Entry>
+            <Button x:Name="LogIn" Text="Login"  Padding="4" Margin="40,50,40,0" Clicked="LogIn_Clicked"
+                    BackgroundColor="#26A69A" TextColor="White" BorderWidth="2" CornerRadius="20"/>
+            <Button x:Name="SingUp" Text="SignUp" Padding="4" Margin="40,10,40,0" Clicked="SingUp_Clicked"
+                    BackgroundColor="#651FFF" TextColor="White" BorderWidth="2" CornerRadius="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

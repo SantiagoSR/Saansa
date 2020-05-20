@@ -26,7 +26,7 @@
                                 </StackLayout>
                                 <Button x:Name="subButton"
                                         Text="-"
-                                        BackgroundColor="WhiteSmoke"
+                                        BackgroundColor="#673AB7"
                                         Margin="5,5,0,5"
                                         Clicked="subButton_Clicked"
                                         FontSize="Small"
@@ -41,7 +41,7 @@
                                 </StackLayout>
                                 <Button x:Name="addButton"
                                         Text="+"
-                                        BackgroundColor="WhiteSmoke"
+                                        BackgroundColor="#673AB7"
                                         Margin="5,5,0,5"
                                         Clicked="addButton_Clicked"
                                         FontSize="Small"
@@ -49,7 +49,7 @@
                                         WidthRequest="30"/>
                                 <Button x:Name="addCart"
                                         Text="Agregar"
-                                        BackgroundColor="WhiteSmoke"
+                                        BackgroundColor="#26A69A"
                                         Margin="5,3,5,3"
                                         Padding="4"
                                         Clicked="addCart_Clicked"
@@ -61,8 +61,8 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout VerticalOptions="EndAndExpand">
-                <Button x:Name="goToCart" Text="Ir al carrito" BackgroundColor="White" Clicked="goToCart_Clicked"
-                         BorderColor="Orange" BorderWidth="2" CornerRadius="15" Margin="10"/>
+                <Button x:Name="goToCart" Text="Ir al carrito" BackgroundColor="#673AB7" Clicked="goToCart_Clicked"
+                         CornerRadius="15" Margin="10"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

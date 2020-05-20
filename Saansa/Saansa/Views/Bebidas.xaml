@@ -8,15 +8,15 @@
     <ContentPage.Content>
         <StackLayout>
             <Button x:Name="Mecato" Text="Mecato" FontSize="Large" Padding="4" Margin="20,100,20,10" Clicked="Mecato_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                    BackgroundColor="#26A69A" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
             <Button x:Name="Bebida" Text="Bebidas" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Liquidos_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                    BackgroundColor="#26A69A" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
             <Button x:Name="Resposteria" Text="Reposteria" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Resposteria_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                    BackgroundColor="#26A69A" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
             <Button x:Name="Medi" Text="Medicamentos" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Medi_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                    BackgroundColor="#26A69A" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
             <Button x:Name="Otros" Text="Otros" FontSize="Large" Padding="4" Margin="20,10,20,10" Clicked="Otros_Clicked"
-                    BackgroundColor="White" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
+                    BackgroundColor="#26A69A" BorderColor="Gray" BorderWidth="2" CornerRadius="20"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
