@@ -51,9 +51,9 @@ namespace Saansa.Views
                            }
                             await DisplayAlert("Exito", "Se añadio tu usuario", "Ok");
                         }
-                        else
+                        else if(!string.IsNullOrEmpty(txtTelefono.Text))
                         {
-                            string sql = "INSERT INTO users(Nombre_Usuario,Contra,Correo) VALUES(@Nombre_Usuario,@Contra,@Correo,@Telefono)";
+                            string sql = "INSERT INTO users(Nombre_Usuario,Contra,Correo,Telefono) VALUES(@Nombre_Usuario,@Contra,@Correo,@Telefono)";
 
                             using (MySqlCommand cmd = new MySqlCommand(sql, con))
                             {
@@ -63,12 +63,7 @@ namespace Saansa.Views
                                 cmd.Parameters.AddWithValue("@Telefono",Convert.ToInt32(txtTelefono.Text));
                                 cmd.CommandType = CommandType.Text;
 
-                                int result = cmd.ExecuteNonQuery();
-                                if (result < 0)
-                                {
-
-                                    await DisplayAlert("Paso esto: ", "Error añadiendo usuario", "test");
-                                }
+                                cmd.ExecuteNonQuery();
                             }
                             await DisplayAlert("Exito", "Se añadio tu usuario", "Ok");
 

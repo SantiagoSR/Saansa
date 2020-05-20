@@ -7,6 +7,9 @@ using SQLite;
 using Saansa.Modelos;
 using System.Collections.Generic;
 using Saansa.Views;
+using MySql.Data.MySqlClient;
+using System.Data;
+using Saansa.Modelos;
 
 namespace Saansa
 {
@@ -15,13 +18,17 @@ namespace Saansa
 
         public static IList<ArticuloCarrito> listaCarrito;
         static SQLiteHelper db;
+
         public App()
         {
             InitializeComponent();
             //MainPage = new NavigationPage(new MainPage());
+           
             MainPage = new NavigationPage(new PaginaPrincipal());
 
         }
+
+        
         public static SQLiteHelper SQLiteDb
         {
             get
