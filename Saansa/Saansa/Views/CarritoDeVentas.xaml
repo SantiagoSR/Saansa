@@ -8,16 +8,19 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal">
-                                <StackLayout HorizontalOptions="StartAndExpand">
+                            <StackLayout Orientation="Horizontal" >
+                                <StackLayout Orientation="Horizontal" >
                                     <Label Text="{Binding Producto}" Padding="7"
                                            TextColor="Black" FontSize="Large"/>
                                 </StackLayout>
                                 <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
                                     <Label x:Name="CantidadProducto" Text="{Binding Cantidad}" Padding="7"
-                                           TextColor="LightGray" FontSize="Large"/>
+                                            WidthRequest="30" TextColor="LightGray" FontSize="Large"
+                                           />
                                     <Label x:Name="PrecioProducto"  Text="{Binding Precio}" VerticalOptions="CenterAndExpand"
-                                           TextColor="Black" HorizontalOptions="EndAndExpand" FontSize="Large" Padding="7"/>
+                                           WidthRequest="90" HorizontalOptions="EndAndExpand" FontSize="Large" Padding="7"
+                                           HorizontalTextAlignment="End"
+                                           />
                                 </StackLayout>
                             </StackLayout>
                         </ViewCell>
@@ -25,12 +28,12 @@
                 </ListView.ItemTemplate>
             </ListView>
             <StackLayout Orientation="Horizontal">
-                <StackLayout>
+                <StackLayout Orientation="Horizontal">
                     <Label Text="Precio total de la venta:" HorizontalOptions="StartAndExpand"
                            Padding="7" Margin="10,0,10,0" FontSize="Medium"/>
                 </StackLayout>
-                <StackLayout HorizontalOptions="EndAndExpand">
-                    <Label Text="{Binding price}" Padding="7"/>
+                <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                    <Label x:Name="TotalPrice" FontSize="Large" Padding="7" TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
             <Button Text="Pagar" BackgroundColor="#673AB7" Clicked="Button_Clicked"

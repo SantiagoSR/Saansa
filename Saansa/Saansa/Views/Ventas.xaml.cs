@@ -19,11 +19,19 @@ namespace Saansa
         public Ventas()
         {
             InitializeComponent();
+            if (App.listaCarrito != null)
+            {
+                App.listaCarrito.Clear();
+            }
         }
 
 
         void Button_Clicked(System.Object sender, System.EventArgs e)
         {
+            if (App.listaCarrito != null)
+            {
+                App.listaCarrito.Clear();
+            }
             Navigation.PushAsync(new Categoria());
         }
     }
