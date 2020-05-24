@@ -28,8 +28,16 @@ namespace Saansa
 
         private async void BtnAdd_Clicked(object sender, EventArgs e)
         {
+            var categoria_general = Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]);
+
             if (!string.IsNullOrEmpty(txtNombre.Text) && !string.IsNullOrEmpty(txtProducto.Text) && !string.IsNullOrEmpty(txtPrecio.Text) && !string.IsNullOrEmpty(txtCosto.Text))
             {
+               
+                var sub1 = Convert.ToString(SubCat1.Items[SubCat1.SelectedIndex]);
+                var sub2 = Convert.ToString(SubCat2.Items[SubCat2.SelectedIndex]);
+                var sub3 = Convert.ToString(SubCat3.Items[SubCat3.SelectedIndex]);
+
+
                 Modelos.Articulo articulo = new Modelos.Articulo()
                 {
                     Id = txtProducto.Text,

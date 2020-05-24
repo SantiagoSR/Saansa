@@ -32,6 +32,7 @@
                     <x:String>Jugos</x:String>
                     <x:String>Energizantes</x:String>
                     <x:String>Calientes</x:String>
+                    <x:String>No</x:String>
                 </Picker.Items>
             </Picker>
             <Label Text="SubCategoria 2" ></Label>
@@ -39,6 +40,8 @@
                 <Picker.Items>
                     <x:String>Cerveza</x:String>
                     <x:String>Licores</x:String>
+                    <x:String>No</x:String>
+                    
                 </Picker.Items>
             </Picker>
             <Label Text="SubCategoria 3" ></Label>
