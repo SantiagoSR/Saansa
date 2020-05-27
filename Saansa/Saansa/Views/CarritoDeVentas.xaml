@@ -36,7 +36,7 @@
                     <Label x:Name="TotalPrice" FontSize="Large" Padding="7" TextColor="Black"/>
                 </StackLayout>
             </StackLayout>
-            <Button Text="Pagar" BackgroundColor="#673AB7" Clicked="Button_Clicked"
+            <Button Text="Generar Factura" BackgroundColor="#673AB7" Clicked="Button_Clicked"
                     CornerRadius="15" Margin="10"/>
             <Button x:Name="QRbut" Text="Generar CodigoQR" BackgroundColor="#26A69A" Clicked="generateQR_Clicked"
                     CornerRadius="15" Margin="10,0,10,10"/>
