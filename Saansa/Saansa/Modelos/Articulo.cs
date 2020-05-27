@@ -23,5 +23,6 @@ namespace Saansa.Modelos
         public string Category2 { get; set; }
         public string Category3 { get; set; }
         public int Popularidad { get; set; }
+        public int VecesVendidas { get; set; }
     }
 }
