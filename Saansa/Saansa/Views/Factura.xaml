@@ -17,6 +17,9 @@
                    FontSize="16"
                    HorizontalOptions="StartAndExpand"
                    VerticalOptions="StartAndExpand" />
+                <Button x:Name="goBack" Text="Regresar" BackgroundColor="WhiteSmoke" Clicked="Main_Menu_Clicked"
+                    BorderColor="LightGray" BorderWidth="2" CornerRadius="15" Margin="10,0,10,10" VerticalOptions="Start" HorizontalOptions="End"
+                    FontSize="10"/>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

@@ -19,5 +19,10 @@ namespace Saansa.Views
             BindingContext = this;
             label.Text = texto;
         }
+
+        void Main_Menu_Clicked (System.Object sender, System.EventArgs e)
+        {
+            Navigation.PushAsync(new MainPage());
+        }
     }
 }
