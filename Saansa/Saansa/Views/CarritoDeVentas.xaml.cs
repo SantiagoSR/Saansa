@@ -34,15 +34,14 @@ namespace Saansa.Views
                 factura += "\nProductos";
 
                 foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
-                    Console.WriteLine(a.Producto);
                     Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
-                    Console.WriteLine(articulo.Cantidad);
                     articulo.Cantidad = articulo.Cantidad - a.Cantidad;
+
                     Console.WriteLine(articulo.Cantidad);
 
                     factura += "\n\n\t\t\t"+a.Producto + " (" + a.Cantidad + " x $" + articulo.Precio +")" + "\t\t\t\t$" + a.Cantidad*articulo.Precio;
                     total += a.Cantidad * articulo.Precio;
-
+                    articulo.VecesVendidas = articulo.VecesVendidas + a.Cantidad;
                     await App.SQLiteDb.SaveItemAsync(articulo);
 
                 }

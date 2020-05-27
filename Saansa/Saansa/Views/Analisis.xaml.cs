@@ -11,5 +11,17 @@ namespace Saansa.Views
         {
             InitializeComponent();
         }
+
+        protected async override void OnAppearing()
+        {
+            base.OnAppearing();
+            var articuloLista = await App.SQLiteDb.GetItemsAsyncCategory(c);
+            if (articuloLista != null)
+            {
+                productosMasVendidos.ItemsSource = articuloLista;
+            }
+        }
+
+
     }
 }
