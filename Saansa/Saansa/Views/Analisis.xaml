@@ -4,27 +4,49 @@
              x:Class="Saansa.Views.Analisis"
              Title="Análisis">
     <ContentPage.Content>
-        <StackLayout>
+        <StackLayout BackgroundColor="White">
+            <Label Text="Lista descendente de productos vendidos:" BackgroundColor="White"
+                   FontSize="Large" TextColor="Black" Padding="7"/>
             <StackLayout>
                 <ListView x:Name="productosMasVendidos" BackgroundColor="White">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal">
-
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="NombreProducto" Text="{Binding Producto}" Padding="7"
+                                               WidthRequest="200" FontSize="Large"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label x:Name="VecesVendidas" Text="{Binding VecesVendidas}"
+                                               VerticalOptions="CenterAndExpand"
+                                               WidthRequest="90" HorizontalOptions="EndAndExpand" FontSize="Large" Padding="7"
+                                               HorizontalTextAlignment="End"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
             </StackLayout>
+            <Label Text="Lista ascendente de productos vendidos:" BackgroundColor="White"
+                   FontSize="Large" TextColor="Black" Padding="7"/>
             <StackLayout>
                 <ListView x:Name="productosMenosVendidos" BackgroundColor="White">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout Orientation="Horizontal">
-
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label x:Name="NombreProducto" Text="{Binding Producto}" Padding="7"
+                                               WidthRequest="200" FontSize="Large"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="EndAndExpand">
+                                        <Label x:Name="VecesVendidas" Text="{Binding VecesVendidas}"
+                                               VerticalOptions="CenterAndExpand"
+                                               WidthRequest="90" HorizontalOptions="EndAndExpand" FontSize="Large" Padding="7"
+                                               HorizontalTextAlignment="End"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
