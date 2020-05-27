@@ -19,18 +19,8 @@ namespace Saansa.Views
             var articuloLista = await App.SQLiteDb.GetItemsAsync();
             if (articuloLista != null)
             {
-                if (App.listaAnalisis != null)
-                {
-                    App.listaAnalisis.Clear();
-                    App.listaAnalisis = articuloLista.OrderBy(a => a.VecesVendidas).ToList();
-                    productosMasVendidos.ItemsSource = App.listaAnalisis;
-                    productosMenosVendidos.ItemsSource = articuloLista.OrderByDescending(a => a.VecesVendidas).ToList();
-                }
-                else {
-                    App.listaAnalisis = articuloLista.OrderBy(a => a.VecesVendidas).ToList();
-                    productosMasVendidos.ItemsSource = App.listaAnalisis;
-                    productosMenosVendidos.ItemsSource = articuloLista.OrderByDescending(a => a.VecesVendidas).ToList();
-                }
+                productosMasVendidos.ItemsSource = articuloLista.OrderBy(a => a.VecesVendidas).ToList();
+                productosMenosVendidos.ItemsSource = articuloLista.OrderByDescending(a => a.VecesVendidas).ToList();
             }
         }
 

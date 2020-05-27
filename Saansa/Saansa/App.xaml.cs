@@ -12,7 +12,6 @@ namespace Saansa
 
         public static IList<ArticuloCarrito> listaCarrito;
         public static IList<ArticuloCarrito> listaCategoria;
-        public static IList<Articulo> listaAnalisis;
         static SQLiteHelper db;
 
         public App()

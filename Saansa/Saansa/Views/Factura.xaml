@@ -4,22 +4,26 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
+             NavigationPage.HasBackButton="False"
              x:Class="Saansa.Views.Factura">
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="White">
-                <Label x:Name="title"
-                       FontSize="20"
-                       HorizontalOptions="Center"
-                       VerticalOptions="Start"
-                       Text="Factura de venta"/>
-                <Label x:Name="label"
-                   FontSize="16"
-                   HorizontalOptions="StartAndExpand"
-                   VerticalOptions="StartAndExpand" />
-                <Button x:Name="goBack" Text="Regresar" BackgroundColor="WhiteSmoke" Clicked="Main_Menu_Clicked"
-                    BorderColor="LightGray" BorderWidth="2" CornerRadius="15" Margin="10,0,10,10" VerticalOptions="Start" HorizontalOptions="End"
-                    FontSize="10"/>
+                <StackLayout>
+                    <Label x:Name="title"
+                           FontSize="20" Margin="0,20,0,0"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Start"
+                           Text="Factura de venta"/>
+                    <Label x:Name="label"
+                           FontSize="16"
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="StartAndExpand" />
+                </StackLayout>
+                <StackLayout VerticalOptions="EndAndExpand">
+                    <Button x:Name="goBack" Text="Regresar" BackgroundColor="#26A69A" Clicked="Main_Menu_Clicked"
+                        CornerRadius="15" Margin="10,0,10,10"/>
+                </StackLayout>
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
