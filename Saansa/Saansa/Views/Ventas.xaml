@@ -11,8 +11,8 @@
     <ContentPage.Content>
         
         <StackLayout BackgroundColor="White" VerticalOptions="EndAndExpand">
-            <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="White"
-                    BorderColor="White" BorderWidth="3" CornerRadius="20" Margin="10"/>
+            <Button Text="Crear Venta" Clicked="Button_Clicked" BackgroundColor="#26A69A"
+                    CornerRadius="20" Margin="10"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

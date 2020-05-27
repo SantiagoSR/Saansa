@@ -10,6 +10,7 @@ namespace Saansa.Views
     public partial class CarritoDeVentas : ContentPage
     {
         public string strQR;
+
         public CarritoDeVentas()
         {
             InitializeComponent();
@@ -19,6 +20,7 @@ namespace Saansa.Views
             foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
                 price += a.Precio;
             }
+            TotalPrice.Text = price.ToString();
         }
 
         private async void Button_Clicked(System.Object sender, System.EventArgs e)
@@ -45,6 +47,8 @@ namespace Saansa.Views
 
                 }
                 factura += "\n\nTOTAL:\t\t$" + total;
+
+                App.listaCarrito.Clear();
 
                 await Navigation.PushAsync(new Factura(factura));
             }

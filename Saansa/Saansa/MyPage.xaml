@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:local="clr-namespace:Saansa" 
+             xmlns:local="clr-namespace:Saansa" xmlns:local1="clr-namespace:Saansa.Views" 
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
              x:Class="Saansa.MyPage">
     <local:Ventas/>
     <local:Inventario/>
     <local:Scanner/>
+    <local1:Analisis/>
 </TabbedPage>
