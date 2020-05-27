@@ -33,7 +33,7 @@
                     <Label Text="{Binding price}" Padding="7"/>
                 </StackLayout>
             </StackLayout>
-            <Button Text="Pagar" BackgroundColor="White" Clicked="Button_Clicked"
+            <Button Text="Generar Factura" BackgroundColor="White" Clicked="Button_Clicked"
                     BorderColor="Orange" BorderWidth="2" CornerRadius="15" Margin="10"/>
             <Button x:Name="QRbut" Text="Generar CodigoQR" BackgroundColor="WhiteSmoke" Clicked="generateQR_Clicked"
                     BorderColor="LightGray" BorderWidth="2" CornerRadius="15" Margin="10,0,10,10"/>

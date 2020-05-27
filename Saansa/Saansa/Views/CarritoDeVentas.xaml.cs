@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Collections;
 using SQLite;
-
 using Xamarin.Forms;
 using Saansa.Modelos;
 
@@ -27,6 +26,11 @@ namespace Saansa.Views
 
             if (App.listaCarrito != null)
             {
+                string factura = "";
+                double total = 0;
+                factura += "\n\nFecha:\t\t" + DateTime.Now.AddHours(-5).ToString("dd-MM-yyyy hh:mm:ss tt")+ "\n";
+                factura += "\nProductos";
+
                 foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
                     Console.WriteLine(a.Producto);
                     Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
@@ -34,12 +38,16 @@ namespace Saansa.Views
                     articulo.Cantidad = articulo.Cantidad - a.Cantidad;
                     Console.WriteLine(articulo.Cantidad);
 
+                    factura += "\n\n\t\t\t"+a.Producto + " (" + a.Cantidad + " x $" + articulo.Precio +")" + "\t\t\t\t$" + a.Cantidad*articulo.Precio;
+                    total += a.Cantidad * articulo.Precio;
+
                     await App.SQLiteDb.SaveItemAsync(articulo);
+
                 }
+                factura += "\n\nTOTAL:\t\t$" + total;
 
+                await Navigation.PushAsync(new Factura(factura));
             }
-
-            await Navigation.PushAsync(new MainPage());
         }
 
         void generateQR_Clicked(System.Object sender, System.EventArgs e)
