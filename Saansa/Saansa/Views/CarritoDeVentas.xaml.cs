@@ -30,12 +30,9 @@ namespace Saansa.Views
             if (App.listaCarrito != null)
             {
                 foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
-                    Console.WriteLine(a.Producto);
                     Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
-                    Console.WriteLine(articulo.Cantidad);
                     articulo.Cantidad = articulo.Cantidad - a.Cantidad;
-                    Console.WriteLine(articulo.Cantidad);
-
+                    articulo.VecesVendidas = articulo.VecesVendidas + a.Cantidad;
                     await App.SQLiteDb.SaveItemAsync(articulo);
                 }
 
