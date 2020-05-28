@@ -27,6 +27,8 @@ namespace Saansa.Views
             {
                 var User = "";
                 var contra = "";
+                var isAdmin = "";
+                var isSeller = "";
                 MySqlConnection con = new MySqlConnection(conexion);
                 try
                 {
@@ -34,7 +36,7 @@ namespace Saansa.Views
                     if (con.State == ConnectionState.Closed)
                     {
 
-                        string sql = "SELECT Nombre_Usuario, Contra FROM users WHERE Nombre_Usuario = '" + txtUsuario.Text + "' AND Contra = '" + txtContraseña.Text + "'";
+                        string sql = "SELECT Nombre_Usuario, Contra, isAdmin, isSeller FROM users WHERE Nombre_Usuario = '" + txtUsuario.Text + "' AND Contra = '" + txtContraseña.Text + "'";
                         MySqlCommand command = new MySqlCommand(sql, con);
 
                         con.Open();
@@ -44,27 +46,35 @@ namespace Saansa.Views
                         {
                             User = reader.GetString("Nombre_Usuario");
                             contra = reader.GetString("Contra");
+                            isAdmin = reader.GetString("isAdmin");
+                            isSeller = reader.GetString("isSeller");
                             count = count + 1;
                         }
 
                         if (count == 1)
                         {
-                            await Navigation.PushAsync(new MainPage());
+                            if (isAdmin == "true")
+                            {
+                                await Navigation.PushAsync(new MainPage());
+                            }else if (isSeller == "true")
+                            {
+                                await Navigation.PushAsync(new MyPage());
+                            }
+                            else
+                            {
+                                await Navigation.PushAsync(new Ventas());
+
+                            }
+
                         }
                         else if (count > 1)
 
                         {
-
                             await DisplayAlert("Paso esto: ", "Usuario y Contraseña duplicados", "Ok");
-
                         }
-
                         else
-
                         {
-
                             await DisplayAlert("Paso esto: ", "Usuario ó Contraseña no validos", "Ok");
-
                         }
 
 

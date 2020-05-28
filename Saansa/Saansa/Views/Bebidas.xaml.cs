@@ -45,7 +45,7 @@ namespace Saansa.Views
             Navigation.PushAsync(new VistaInventario("Mecato"));
         }
 
-        protected async void update_local_db()
+        public async void update_local_db()
         {
             string id;
 

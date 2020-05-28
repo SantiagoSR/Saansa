@@ -87,6 +87,12 @@ namespace Saansa
                             txtProducto.Text = string.Empty;
                             txtCosto.Text = string.Empty;
                             txtPrecio.Text = string.Empty;
+
+
+                            MainPicker.Items.Clear();
+                            SubCat1.Items.Clear();
+                            SubCat2.Items.Clear();
+                            SubCat3.Items.Clear();
                             await DisplayAlert("Success", "Articulo añadido con exito ", "OK");
                         }
                     }
@@ -98,6 +104,7 @@ namespace Saansa
                 finally
                 {
                     con.Close();
+
                 }
 
             }
@@ -217,6 +224,12 @@ namespace Saansa
                                 txtProducto.Text = string.Empty;
                                 txtCosto.Text = string.Empty;
                                 txtPrecio.Text = string.Empty;
+
+
+                                MainPicker.Items.Clear();
+                                SubCat1.Items.Clear();
+                                SubCat2.Items.Clear();
+                                SubCat3.Items.Clear();
                                 await DisplayAlert("Success", "Producto actualizado con éxito", "OK");
                             }
                             else if (count >= 2)

@@ -16,6 +16,8 @@ namespace Saansa
     {
         public HorizontalListViewLayout ListLayout { get; set; } = HorizontalListViewLayout.Linear;
 
+
+        
         public Ventas()
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Saansa
             {
                 App.listaCarrito.Clear();
             }
+            
             Navigation.PushAsync(new Categoria());
         }
     }
