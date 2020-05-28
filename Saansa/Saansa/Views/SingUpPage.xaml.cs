@@ -60,7 +60,7 @@ namespace Saansa.Views
                                 cmd.Parameters.AddWithValue("@Nombre_Usuario", txtUsuario.Text);
                                 cmd.Parameters.AddWithValue("@Contra", txtContraseña.Text);
                                 cmd.Parameters.AddWithValue("@Correo", txtCorreo.Text);
-                                cmd.Parameters.AddWithValue("@Telefono",Convert.ToInt32(txtTelefono.Text));
+                                cmd.Parameters.AddWithValue("@Telefono",txtTelefono.Text);
                                 cmd.CommandType = CommandType.Text;
 
                                 cmd.ExecuteNonQuery();

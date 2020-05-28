@@ -38,10 +38,11 @@ namespace Saansa.Views
 
                 try
                 {
+                    Console.WriteLine(con.State);
 
                     if (con.State == ConnectionState.Closed)
                     {
-
+                        con.Open();
                         foreach (Modelos.ArticuloCarrito a in App.listaCarrito)
                         {
                             Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
@@ -55,7 +56,7 @@ namespace Saansa.Views
                             string sql = "UPDATE articulos SET Producto='" + Convert.ToString(articulo.Producto) + "',Cantidad='" + Convert.ToInt32(articulo.Cantidad) + "', Popularidad='" + Convert.ToInt32(articulo.VecesVendidas) + "' WHERE Producto = '" + articulo.Producto + "'";
                             using (MySqlCommand cmd = new MySqlCommand(sql, con))
                             {
-                                con.Open();
+                                
                                 MySqlDataReader reader = cmd.ExecuteReader();
 
                                 while (reader.Read())

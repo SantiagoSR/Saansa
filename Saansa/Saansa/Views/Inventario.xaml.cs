@@ -98,7 +98,6 @@ namespace Saansa
                 finally
                 {
                     con.Close();
-
                 }
 
             }

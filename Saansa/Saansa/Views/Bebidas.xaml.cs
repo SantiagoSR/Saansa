@@ -67,36 +67,23 @@ namespace Saansa.Views
                         while (reader.Read())
                         {
                             id = reader["Id"].ToString();
-                            Console.WriteLine("Este es mi identificador: " + id);
                             producto = reader.GetString("Producto");
-                            Console.WriteLine(producto);
                             cantidad = reader.GetInt32("Cantidad");
-                            Console.WriteLine(cantidad);
                             precio = reader.GetInt32("Precio");
-                            Console.WriteLine(precio);
                             costo = reader.GetInt32("Costo");
-                            Console.WriteLine(costo);
                             categoria_general = reader.GetString("Categoria_General");
-                            Console.WriteLine(categoria_general);
                             subcat1 = reader.GetString("SubCategoria1");
-                            Console.WriteLine(subcat1);
                             subcat2 = reader.GetString("SubCategoria2");
-                            Console.WriteLine(subcat2);
                             subcat3 = reader.GetString("SubCategoria3");
-                            Console.WriteLine(subcat3);
                             if(reader["Popularidad"] != DBNull.Value)
                             {
-
-
                                 veces_vendidas = reader.GetInt32("Popularidad");
                                 
-
                             }
                             else
                             {
                                 veces_vendidas = 0;
                             }
-                            Console.WriteLine(veces_vendidas);
 
                             var articulo = await App.SQLiteDb.GetItemAsync(producto);
                             if( articulo == null)
@@ -111,7 +98,8 @@ namespace Saansa.Views
                                     MasterCategory = categoria_general,
                                     Category1 = subcat1,
                                     Category2 = subcat2,
-                                    Category3 = subcat3
+                                    Category3 = subcat3,
+                                    VecesVendidas = veces_vendidas
                                 };
 
                                 await App.SQLiteDb.SaveItemAsync(articulo);
@@ -130,10 +118,7 @@ namespace Saansa.Views
                                 articulo.VecesVendidas = (string.Equals("0", veces_vendidas + "0")) ? articulo.VecesVendidas : veces_vendidas;
 
                                 await App.SQLiteDb.SaveItemAsync(articulo);
-                            }
-                            Console.WriteLine(Convert.ToString(articulo));
-
-                            
+                            }                       
                         }
                     }
                 }
@@ -145,6 +130,7 @@ namespace Saansa.Views
             }
             finally
             {
+                Console.WriteLine("cerrando conexion inventario");
                 con.Close();
             }
         }
