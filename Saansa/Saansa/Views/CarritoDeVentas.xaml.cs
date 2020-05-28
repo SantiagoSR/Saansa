@@ -4,12 +4,15 @@ using System.Collections;
 using SQLite;
 using Xamarin.Forms;
 using Saansa.Modelos;
-
+using MySql.Data.MySqlClient;
+using System.Data;
 namespace Saansa.Views
 {
     public partial class CarritoDeVentas : ContentPage
     {
         public string strQR;
+
+        private MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
 
         public CarritoDeVentas()
         {
@@ -33,18 +36,44 @@ namespace Saansa.Views
                 factura += "\n\nFecha:\t\t" + DateTime.Now.AddHours(-5).ToString("dd-MM-yyyy hh:mm:ss tt")+ "\n";
                 factura += "\nProductos";
 
-                foreach (Modelos.ArticuloCarrito a in App.listaCarrito) {
-                    Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
-                    articulo.Cantidad = articulo.Cantidad - a.Cantidad;
+                try
+                {
 
-                    Console.WriteLine(articulo.Cantidad);
+                    if (con.State == ConnectionState.Closed)
+                    {
 
-                    factura += "\n\n\t\t\t"+a.Producto + " (" + a.Cantidad + " x $" + articulo.Precio +")" + "\t\t\t\t$" + a.Cantidad*articulo.Precio;
-                    total += a.Cantidad * articulo.Precio;
-                    articulo.VecesVendidas = articulo.VecesVendidas + a.Cantidad;
-                    await App.SQLiteDb.SaveItemAsync(articulo);
+                        foreach (Modelos.ArticuloCarrito a in App.listaCarrito)
+                        {
+                            Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
 
+                            articulo.Cantidad = articulo.Cantidad - a.Cantidad;
+                            factura += "\n\n\t\t\t" + a.Producto + " (" + a.Cantidad + " x $" + articulo.Precio + ")" + "\t\t\t\t$" + a.Cantidad * articulo.Precio;
+                            total += a.Cantidad * articulo.Precio;
+
+                            articulo.VecesVendidas = articulo.VecesVendidas + a.Cantidad;
+
+                            string sql = "UPDATE articulos SET Producto='" + Convert.ToString(articulo.Producto) + "',Cantidad='" + Convert.ToInt32(articulo.Cantidad) + "', Popularidad='" + Convert.ToInt32(articulo.VecesVendidas) + "' WHERE Producto = '" + articulo.Producto + "'";
+                            using (MySqlCommand cmd = new MySqlCommand(sql, con))
+                            {
+                                con.Open();
+                                MySqlDataReader reader = cmd.ExecuteReader();
+
+                                while (reader.Read())
+                                {
+                                }
+                                await App.SQLiteDb.SaveItemAsync(articulo);
+                            }
+                        }
+                    }
+                }catch (MySqlException ex)
+                {
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex) + "Fallo en conexion Intentelo mas tarde", "test");
                 }
+                finally
+                {
+                    con.Close();
+                }
+
                 factura += "\n\nTOTAL:\t\t$" + total;
 
                 App.listaCarrito.Clear();
@@ -52,6 +81,7 @@ namespace Saansa.Views
                 await Navigation.PushAsync(new Factura(factura));
             }
         }
+    
 
         void generateQR_Clicked(System.Object sender, System.EventArgs e)
         {

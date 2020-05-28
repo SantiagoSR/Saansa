@@ -131,6 +131,7 @@ namespace Saansa
                             while (reader.Read())
                             {
                                 id = reader.GetString("Id");
+                                Console.WriteLine("Este es mi id: "+id);
                                 producto = reader.GetString("Producto");
                                 cantidad = reader.GetInt32("Cantidad");
                                 precio = reader.GetInt32("Precio");
@@ -138,11 +139,13 @@ namespace Saansa
 
                                 count = count + 1;
                             }
+                            Console.WriteLine("Este es mi id verificar: " + id);
                             if (count == 0)
                             {
                                 await DisplayAlert("Alerta","No hay articulos con ese nombre en BD","OK");
                             }else if (count == 1)
                             {
+                                Console.WriteLine("Este es mi id verificar 3: " + id);
                                 await DisplayAlert("EXITO", "Identificacion: " + id + "\nNombre Articulo: " + producto + "\nCantidad: " + cantidad + "\nPrecio: " + precio
                         + "\nCategoria: " + categoria_general ,"OK");
                             }else if (count >=2)
