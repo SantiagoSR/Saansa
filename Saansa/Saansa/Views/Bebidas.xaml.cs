@@ -130,7 +130,6 @@ namespace Saansa.Views
             }
             finally
             {
-                Console.WriteLine("cerrando conexion inventario");
                 con.Close();
             }
         }

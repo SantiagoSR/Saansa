@@ -17,7 +17,7 @@ namespace Saansa
         public HorizontalListViewLayout ListLayout { get; set; } = HorizontalListViewLayout.Linear;
 
 
-        
+        private Bebidas update = new Bebidas();
         public Ventas()
         {
             InitializeComponent();
@@ -34,7 +34,7 @@ namespace Saansa
             {
                 App.listaCarrito.Clear();
             }
-            
+            update.update_local_db();
             Navigation.PushAsync(new Categoria());
         }
     }
