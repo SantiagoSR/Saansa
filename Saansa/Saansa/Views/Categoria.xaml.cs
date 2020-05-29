@@ -6,10 +6,12 @@ namespace Saansa.Views
 {
     public partial class Categoria : ContentPage
     {
+        private Bebidas update = new Bebidas();
         List<Modelos.ArticuloCarrito> carrito = new List<Modelos.ArticuloCarrito>();
         public Categoria()
         {
             InitializeComponent();
+
         }
 
         void Otros_Clicked(System.Object sender, System.EventArgs e)

@@ -7,7 +7,7 @@
              mc:Ignorable="d"
              NavigationPage.HasBackButton="False"
              x:Class="Saansa.MyPage">
-    <local:Ventas/>
+    <local1:Categoria/>
     <local:Inventario/>
     <local:Scanner/>
 </TabbedPage>

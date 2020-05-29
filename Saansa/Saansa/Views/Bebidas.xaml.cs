@@ -120,6 +120,7 @@ namespace Saansa.Views
                                 await App.SQLiteDb.SaveItemAsync(articulo);
                             }                       
                         }
+                        reader.Close();
                     }
                 }
             }

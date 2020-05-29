@@ -22,7 +22,7 @@ namespace Saansa.Views
 
         void Main_Menu_Clicked (System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new MainPage());
+            Navigation.PushAsync(new Categoria());
         }
     }
 }

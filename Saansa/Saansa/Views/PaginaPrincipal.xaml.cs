@@ -62,7 +62,7 @@ namespace Saansa.Views
                             }
                             else
                             {
-                                await Navigation.PushAsync(new Ventas());
+                                await Navigation.PushAsync(new Categoria());
 
                             }
 
