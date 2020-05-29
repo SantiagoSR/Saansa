@@ -45,11 +45,11 @@
                                     <ColumnDefinition Width="30*" />
                                 </Grid.ColumnDefinitions>
                                 <Label Grid.Column="0" Text=" "/>
-                                <Label Grid.Column="1" Text="{Binding Id}" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Grid.Column="2" Text="{Binding Producto} " FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Grid.Column="3" Text="{Binding Cantidad}" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Grid.Column="4" Text="{Binding Precio}" FontAttributes="Bold" FontSize="Medium"/>
-                                <Label Grid.Column="5" Text="{Binding Costo}" FontAttributes="Bold" FontSize="Medium"/>
+                                <Label Grid.Column="1" Text="{Binding Id}" FontAttributes="Bold" FontSize="Small"/>
+                                <Label Grid.Column="2" Text="{Binding Producto} " FontAttributes="Bold" FontSize="Small"/>
+                                <Label Grid.Column="3" Text="{Binding Cantidad}" FontAttributes="Bold" FontSize="Small"/>
+                                <Label Grid.Column="4" Text="{Binding Precio}" FontAttributes="Bold" FontSize="Small"/>
+                                <Label Grid.Column="5" Text="{Binding Costo}" FontAttributes="Bold" FontSize="Small"/>
                             </Grid>
                         </ViewCell>
                     </DataTemplate>

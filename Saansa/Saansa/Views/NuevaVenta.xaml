@@ -16,7 +16,7 @@
                                     <Label x:Name="nombreProducto"
                                            Text="{Binding Producto}"
                                            Padding="7,7,7,7"
-                                           FontSize="Large"/>
+                                           FontSize="Small"/>
                                 </StackLayout>
                                 <StackLayout>
                                     <Label x:Name="precioProducto"

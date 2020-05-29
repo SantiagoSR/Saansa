@@ -18,11 +18,30 @@ namespace Saansa.Views
 
             BindingContext = this;
             label.Text = texto;
+           
+
         }
 
         void Main_Menu_Clicked (System.Object sender, System.EventArgs e)
         {
-            Navigation.PushAsync(new Categoria());
+
+            if (App.listaCarrito != null)
+            {
+                App.listaCarrito.Clear();
+            }
+            if (App.nivel == "0")
+            {
+                Navigation.PushAsync(new MainPage());
+            }else if (App.nivel == "1")
+            {
+                Navigation.PushAsync(new MyPage());
+
+            }
+            else
+            {
+                Navigation.PushAsync(new Categoria());
+
+            }
         }
     }
 }

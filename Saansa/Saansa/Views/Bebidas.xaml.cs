@@ -59,8 +59,6 @@ namespace Saansa.Views
                     using (MySqlCommand cmd = new MySqlCommand(sql, con))
                     {
 
-
-
                         con.Open();
                         MySqlDataReader reader = cmd.ExecuteReader();
 

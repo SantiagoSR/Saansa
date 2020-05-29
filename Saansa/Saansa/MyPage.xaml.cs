@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Saansa.Views;
 using Xamarin.Forms;
 
 namespace Saansa
@@ -10,6 +10,7 @@ namespace Saansa
         public MyPage()
         {
             InitializeComponent();
+            new Categoria();
         }
     }
 }

@@ -8,10 +8,15 @@ namespace Saansa.Views
     {
         private Bebidas update = new Bebidas();
         List<Modelos.ArticuloCarrito> carrito = new List<Modelos.ArticuloCarrito>();
+       
         public Categoria()
         {
             InitializeComponent();
 
+            if (App.listaCarrito != null)
+            {
+                App.listaCarrito.Clear();
+            }
         }
 
         void Otros_Clicked(System.Object sender, System.EventArgs e)
@@ -41,6 +46,7 @@ namespace Saansa.Views
 
         async void goToCart1_Clicked_1(System.Object sender, System.EventArgs e)
         {
+
             if (App.listaCarrito != null)
             {
                 await Navigation.PushAsync(new CarritoDeVentas());

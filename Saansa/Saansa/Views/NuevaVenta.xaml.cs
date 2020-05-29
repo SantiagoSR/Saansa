@@ -10,7 +10,6 @@ namespace Saansa.Views
     public partial class NuevaVenta : ContentPage
     {
         string c;
-        
         public NuevaVenta(string category, List<Modelos.ArticuloCarrito> carrito)
         {
             InitializeComponent();
