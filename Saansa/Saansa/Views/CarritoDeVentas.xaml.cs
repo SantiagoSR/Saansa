@@ -13,7 +13,7 @@ namespace Saansa.Views
         public string strQR;
 
         private MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
-
+       
         public CarritoDeVentas()
         {
             InitializeComponent();
@@ -24,6 +24,7 @@ namespace Saansa.Views
                 price += a.Precio;
             }
             TotalPrice.Text = price.ToString();
+        
         }
 
         private async void Button_Clicked(System.Object sender, System.EventArgs e)

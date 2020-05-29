@@ -16,6 +16,8 @@ namespace Saansa.Views
     {
         //Publico para que se pueda usar desde cualquier sitio
         public static string conexion ="Server=mi-cafe-delicias.mysql.database.azure.com;Port=3306;database=base_datos_proyecto; User Id = ssantacrur@mi-cafe-delicias;Password=proyectoIntegrador1;charset=utf8";
+
+        private Bebidas update = new Bebidas();
         public PaginaPrincipal()
         {
             InitializeComponent();
@@ -56,13 +58,23 @@ namespace Saansa.Views
                             if (isAdmin == "true")
                             {
                                 await Navigation.PushAsync(new MainPage());
-                            }else if (isSeller == "true")
+                                App.nivel = "0";
+                                update.update_local_db();
+                            }
+                            else if (isSeller == "true")
                             {
                                 await Navigation.PushAsync(new MyPage());
+                                App.nivel = "1";
+
+                                update.update_local_db();
                             }
                             else
                             {
-                                await Navigation.PushAsync(new Ventas());
+
+                                App.nivel = "2";
+                                await Navigation.PushAsync(new Categoria());
+
+                                update.update_local_db();
 
                             }
 

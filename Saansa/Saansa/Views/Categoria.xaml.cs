@@ -7,9 +7,14 @@ namespace Saansa.Views
     public partial class Categoria : ContentPage
     {
         List<Modelos.ArticuloCarrito> carrito = new List<Modelos.ArticuloCarrito>();
+       
         public Categoria()
         {
             InitializeComponent();
+            if (App.listaCarrito != null)
+            {
+                App.listaCarrito.Clear();
+            }
         }
 
         void Otros_Clicked(System.Object sender, System.EventArgs e)
@@ -39,6 +44,7 @@ namespace Saansa.Views
 
         async void goToCart1_Clicked_1(System.Object sender, System.EventArgs e)
         {
+            int ayudante = App.listaCarrito.Count;
             if (App.listaCarrito != null)
             {
                 await Navigation.PushAsync(new CarritoDeVentas());

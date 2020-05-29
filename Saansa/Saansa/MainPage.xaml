@@ -8,7 +8,7 @@
              NavigationPage.HasBackButton="False"
              x:Class="Saansa.MainPage">
     
-    <local:Ventas/>
+    <local1:Categoria/>
     <local:Inventario/>
     <local:Scanner/>
     <local1:Analisis/>
