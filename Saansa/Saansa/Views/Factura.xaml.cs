@@ -24,6 +24,7 @@ namespace Saansa.Views
 
         void Main_Menu_Clicked (System.Object sender, System.EventArgs e)
         {
+
             if (App.listaCarrito != null)
             {
                 App.listaCarrito.Clear();
