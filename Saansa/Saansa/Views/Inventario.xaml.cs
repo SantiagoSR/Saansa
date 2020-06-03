@@ -65,7 +65,7 @@ namespace Saansa
                         {
                             cmd.Parameters.AddWithValue("@Id", txtProducto.Text);
                             cmd.Parameters.AddWithValue("@Producto", txtNombre.Text);
-                            cmd.Parameters.AddWithValue("@Precio", Convert.ToInt32(txtCosto.Text));
+                            cmd.Parameters.AddWithValue("@Precio", Convert.ToInt32(txtPrecio.Text));
                             cmd.Parameters.AddWithValue("@Costo", Convert.ToInt32(txtCosto.Text));
                             cmd.Parameters.AddWithValue("@Cantidad", Convert.ToInt32(txtCantidad.Text));
                             cmd.Parameters.AddWithValue("@Categoria_General", Convert.ToString(MainPicker.Items[MainPicker.SelectedIndex]));

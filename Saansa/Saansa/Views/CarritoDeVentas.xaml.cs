@@ -12,7 +12,7 @@ namespace Saansa.Views
     {
         public string strQR;
 
-        private MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
+        
        
         public CarritoDeVentas()
         {
@@ -24,11 +24,13 @@ namespace Saansa.Views
                 price += a.Precio;
             }
             TotalPrice.Text = price.ToString();
-        
+         
+
         }
 
         private async void Button_Clicked(System.Object sender, System.EventArgs e)
         {
+            MySqlConnection con = new MySqlConnection(PaginaPrincipal.conexion);
 
             if (App.listaCarrito != null)
             {
@@ -39,13 +41,12 @@ namespace Saansa.Views
 
                 try
                 {
-                    Console.WriteLine(con.State);
-
                     if (con.State == ConnectionState.Closed)
                     {
                         con.Open();
                         foreach (Modelos.ArticuloCarrito a in App.listaCarrito)
                         {
+                            
                             Modelos.Articulo articulo = await App.SQLiteDb.GetItemAsync(a.Producto);
 
                             articulo.Cantidad = articulo.Cantidad - a.Cantidad;
@@ -64,12 +65,16 @@ namespace Saansa.Views
                                 {
                                 }
                                 await App.SQLiteDb.SaveItemAsync(articulo);
+                                con.Close();
+                                con = new MySqlConnection(PaginaPrincipal.conexion);
+                                con.Open();
+                                
                             }
                         }
                     }
                 }catch (MySqlException ex)
                 {
-                    await DisplayAlert("Paso esto: ", Convert.ToString(ex) + "Fallo en conexion Intentelo mas tarde", "test");
+                    await DisplayAlert("Paso esto: ", Convert.ToString(ex) + "Fallo en conexion Intentelo mas tarde", "OK");
                 }
                 finally
                 {

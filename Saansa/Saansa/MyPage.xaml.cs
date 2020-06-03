@@ -7,11 +7,9 @@ namespace Saansa
 {
     public partial class MyPage : TabbedPage
     {
-        private string ayudante = "1";
         public MyPage()
         {
             InitializeComponent();
-            new Categoria();
         }
     }
 }
